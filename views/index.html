@@ -1,0 +1,255 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <title> Skill-Lab</title>
+
+    <script >
+      AFRAME.registerComponent('openclosedrawer',{
+
+        schema: {
+          open : {default: '1.8 0 0.1'},
+          close : {default: '0 0 0.1'},
+          dur : {default: 300},
+          closed : {default: "true"}
+        },
+
+        init: function (){
+          var data= this.data;
+          var el=this.el;
+          var closed=true;
+
+          var move=document.createElement("a-animation");
+          move.setAttribute("begin","click");
+          move.setAttribute("attribute", "position");
+          move.setAttribute("from", data.close)
+          move.setAttribute("to", data.open);
+          move.setAttribute("dur", data.dur);
+          move.setAttribute("direction", "alternate");
+
+          el.appendChild(move);
+
+        }
+      });
+      
+      AFRAME.registerComponent('openclosedoor', {
+        
+        schema:{
+          open : {default: '0 -90 0'},
+          close :   {default: '0 0 0'},
+          dur : {default: 300},
+        },
+        
+        init: function(){
+          var data= this.data;
+          var el= this.el;
+          
+          var move = document.createElement("a-animation");
+          move.setAttribute("begin","click");
+          move.setAttribute("attribute", "rotation");
+          move.setAttribute("from", data.close)
+          move.setAttribute("to", data.open);
+          move.setAttribute("dur", data.dur);
+          move.setAttribute("direction", "alternate");
+          
+          el.appendChild(move);
+        }
+        
+      });
+      
+      AFRAME.registerComponent('clockhand_roll',{
+        schema:{
+          type:'string', default: "secondClockhand"
+        },
+        
+        init:function(){
+          var data = this.data;
+          var el=this.el;
+          
+          var oTime= new Date();
+          var curTime;
+          
+          if(data == "secondClockhand" ){
+            curTime = oTime.getSeconds();
+            //alert("Sec"+curTime);
+          }else if(data == "minuteClockhand"){
+            curTime = oTime.getMinutes();
+          }else if(data == "hourClockhand"){
+            curTime = oTime.getHours();
+            //alert("Hour"+curTime);
+          }else {
+            alert("invalid input!");
+          }
+          
+          setClockhandPosition(el, curTime, data);
+        },
+        
+        tick: function(time, timeDelta){
+          var data = this.data;
+          var el=this.el;
+          
+          var oTime= new Date();
+          var curTime;
+          
+          if(data == "secondClockhand" ){
+            curTime = oTime.getSeconds();
+          }else if(data == "minuteClockhand"){
+            curTime = oTime.getMinutes();
+          }else if(data == "hourClockhand"){
+            curTime = oTime.getHours();
+          }else {
+            alert("invalid input!");
+          }
+          
+          setClockhandPosition(el, curTime, data);
+        }     
+      });
+      /**
+      //set the position of the red 30sec plat
+      AFRAME.registerComponent('sec30',{
+        schema:{
+        },
+        init: function(){
+          var data= this.data;
+          var el= this.el;
+          
+          var oTime= new Date();
+          var curTime=oTime.getSeconds();
+          
+          set30SecPosition(el, curTime);
+        }      
+      });
+      //set the position of the red 30sec plat
+      function set30SecPosition(el, curTime){
+        var gradForOneSec=360/60;
+        var rotationArray={x: -curTime*gradForOneSec, y: 0, z: 0};
+          
+        el.setAttribute("rotation", rotationArray);
+      }**/
+      
+      function getPlat30Rotation(){
+        var oTime= new Date();
+        var curTime=oTime.getSeconds();
+        var gradForOneSec=360/60;
+        var rotationPosition={x: -(curTime*gradForOneSec), y: 0, z: 0};
+        return rotationPosition;
+      }
+      
+      //set the position of clock hands
+      function setClockhandPosition(el, curTime, typeOfClockhand){
+        var gradForOneSec;
+        var gradRoll;
+        var rotationArray;
+          
+        if(typeOfClockhand == "secondClockhand" || typeOfClockhand == "minuteClockhand"){
+          gradForOneSec=360/60;
+        }else if(typeOfClockhand == "hourClockhand"){
+          gradForOneSec=360/12;
+        }
+      
+        gradRoll=curTime*gradForOneSec;
+
+        //The value of rotation is a object
+        rotationArray={x: -gradRoll, y: 0, z: 0};
+        el.setAttribute("rotation", rotationArray);  
+      }
+      
+      AFRAME.registerComponent('clockclick', {
+        schema: {},
+        init: function () {
+          var data= this.data;
+          var el= this.el;
+
+          el.onclick=function(ev){
+            if(el.querySelector('#plat30')==null){
+              var plat30sec=document.createElement("a-gltf-model");
+              
+              plat30sec.setAttribute("id","plat30");
+              plat30sec.setAttribute("src","#marking");
+              plat30sec.setAttribute("position", "0.01 0 0");
+              plat30sec.setAttribute("rotation", getPlat30Rotation());
+
+              el.appendChild(plat30sec);
+              
+              var time30=setTimeout(function(){
+                
+                el.removeChild(el.querySelector('#plat30'));
+                alert("time out");
+              },3000);
+            }
+            
+            //alert(el.querySelector('#plat30'));
+
+      };
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <a-scene>
+      
+      <a-assets stats>
+        <!--
+        <img id="skyTexture" src="https://cdn.glitch.com/1bf58326-98a2-4485-80d9-130d8e5aef11%2Fstypetexture.jpg?1496057496405">
+        <img id="groundTexture" src="https://cdn.glitch.com/1bf58326-98a2-4485-80d9-130d8e5aef11%2Fgrasstexture.png?1496061773449">
+        -->
+        <a-asset-item id="cabinet" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcabinetWithoutDrawers.gltf?1497873729121"></a-asset-item>
+        <a-asset-item id="bigdrawer" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcabinetBigDrawer.gltf?1497873729135"></a-asset-item>
+        
+        <a-asset-item id="uhr" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock.gltf?1499070909308"></a-asset-item>
+        <a-asset-item id="zeiger1" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_hand_1_new.gltf?1499330834386"></a-asset-item>
+        <a-asset-item id="zeiger2" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_hand_2_new.gltf?1499332617623"></a-asset-item>
+        <a-asset-item id="zeiger3" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_hand_3_new.gltf?1499332806561"></a-asset-item>
+        <a-asset-item id="marking" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_marking_new.gltf?1499333165729"></a-asset-item>
+        
+        <a-asset-item id="markingcameralight" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_markingcameralight.gltf?1499072411848"></a-asset-item>
+        
+        <a-asset-item id="cupboard" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardWithoutDoors.gltf?1499073051069"></a-asset-item>
+        <a-asset-item id="cupboardleftdoor" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorLeft.gltf?1499073442256"></a-asset-item>
+        <a-asset-item id="cupboardrightdoor" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorRight.gltf?1499073146493"></a-asset-item>
+        
+        <a-asset-item id="zeiger1obj" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_hand_1.obj?1499173112988"></a-asset-item>
+        <a-asset-item id="a" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorRight.gltf?1499073146493"></a-asset-item>
+
+      </a-assets>
+      
+      
+      <a-sky height="2048" radius="30" theta-length="90" width="2048"></a-sky>
+      
+      <a-plane  rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
+      
+      <a-light type="ambient" color="#445451"></a-light>
+      
+      <a-light type="point" intensity="1" position="2 4 4"></a-light>
+      
+      <!-- cabinet ok
+      <a-gltf-model src="#cabinet" position="0 1 -2" scale="0.1 0.1 0.1" rotation="0 270 0">
+        <a-gltf-model src="#bigdrawer" position="0 0 0.1" scale="1 1 1" rotation="0 0 0" openclosedrawer></a-gltf-model>
+      </a-gltf-model>
+      -->   
+      <!-- cupboard ok
+      <a-gltf-model src="#cupboard" position="1 1 -1.3" scale = "0.1 0.1 0.1" rotation="0 270 0">
+        <a-gltf-model src="#cupboardleftdoor" position="2.7 0 6.7" openclosedoor></a-gltf-model>
+        <a-gltf-model src="#cupboardrightdoor" position="2.7 0 0" openclosedoor="open:0 90 0" ></a-gltf-model>
+      </a-gltf-model>
+      -->
+      
+      <a-gltf-model id="clock" src="#uhr" position="0 1 -2" scale="0.5 0.5 0.5" rotation="0 270 0" clockclick>
+         <a-gltf-model id="hourclockhand" src="#zeiger2" position="0.1 0 0" scale="0.9 0.9 0.9 " rotation="90 0 0" clockhand_roll="hourClockhand"></a-gltf-model>
+         <a-gltf-model id="minuteclockhand" src="#zeiger1" position="0.1 0 0" scale="0.9 0.9 0.9" clockhand_roll="minuteClockhand"></a-gltf-model>
+         <a-gltf-model id="secondclockhand" src="#zeiger3" position="0.1 0 0" scale="0.9 0.9 0.9" rotation="45 0 0" clockhand_roll></a-gltf-model>
+         <a-gltf-model id="30secmarking" src="#marking" position="0.01 0 0" visible="false" sec30></a-gltf-model>
+      </a-gltf-model>
+
+     
+        
+      
+    
+      
+      
+      
+      <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
