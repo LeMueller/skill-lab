@@ -5,6 +5,8 @@
     <script src="../js/openclosedrawer.js"></script>
     <script src="../js/openclosedoor.js"></script>
     <script src="../js/clock.js"></script>
+    <script src="../js/opencloseabwurfcap.js"></script>
+    <script src="../js/cursorsubmit.js"></script>
 
     <script>
       
@@ -18,7 +20,7 @@
         <img id="skyTexture" src="https://cdn.glitch.com/1bf58326-98a2-4485-80d9-130d8e5aef11%2Fstypetexture.jpg?1496057496405">
         <img id="groundTexture" src="https://cdn.glitch.com/1bf58326-98a2-4485-80d9-130d8e5aef11%2Fgrasstexture.png?1496061773449">
         -->
-        <a-asset-item id="cabinet" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcabinetWithoutDrawers.gltf?1497873729121"></a-asset-item>
+        <a-asset-item id="cabinet" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcabinetWithoutDrawers.gltf?1499678313619"></a-asset-item>
         <a-asset-item id="bigdrawer" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcabinetBigDrawer.gltf?1497873729135"></a-asset-item>
         
         <a-asset-item id="uhr" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock.gltf?1499070909308"></a-asset-item>
@@ -27,58 +29,64 @@
         <a-asset-item id="zeiger3" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_hand_3_new.gltf?1499332806561"></a-asset-item>
         <a-asset-item id="marking" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_marking_new.gltf?1499333165729"></a-asset-item>
         
-        <a-asset-item id="markingcameralight" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_markingcameralight.gltf?1499072411848"></a-asset-item>
-        
         <a-asset-item id="cupboard" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardWithoutDoors.gltf?1499073051069"></a-asset-item>
         <a-asset-item id="cupboardleftdoor" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorLeft.gltf?1499073442256"></a-asset-item>
         <a-asset-item id="cupboardrightdoor" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorRight.gltf?1499073146493"></a-asset-item>
         
-        <a-asset-item id="abwurf" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fabwurf.gltf?1499428370144"></a-asset-item>
+        <a-asset-item id="abwurfcap" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fabwurfcapobj.gltf?1499682019364"></a-asset-item>
+        <a-asset-item id="abwurfbottle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fabwurfbottle.gltf?1499680037281"></a-asset-item>
         
-        <a-asset-item id="abwurfobj" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fabwurf.obj?1499428731877"></a-asset-item>
-        <a-asset-item id="abwurfmtl" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fabwurf.mtl?1499428731975"></a-asset-item>
-        
-        <a-asset-item id="carbinetNew" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fcabinet.gltf?1499433780366"></a-asset-item>
       </a-assets>
       
       
-      <a-sky height="2048" radius="30" theta-length="90" width="2048"></a-sky>
+      <a-sky height="2048" radius="30" theta-length="90" width="2048"></a-sky>      
+      <a-plane  rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>     
+      <a-light type="ambient" color="#445451"></a-light>    
+      <a-light type="point" intensity="2" position="0 2 0"></a-light>
+      <!--
+      <a-entity light="type: directional; color: #EEE; intensity: 0.5" position="0 0.5 0"></a-entity>
       
-      <a-plane  rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
+      <a-entity light="type: spot; angle: 45; position: 0 0.5 0;"></a-entity>-->
       
-      <a-light type="ambient" color="#445451"></a-light>
-      
-      <a-light type="point" intensity="1" position="2 4 4"></a-light>
-      
-      
-      <a-gltf-model src="#cabinet" position="0 1 -2" scale="0.1 0.1 0.1" rotation="0 270 0">
-        <a-gltf-model src="#bigdrawer" position="0 0 0.1" scale="1 1 1" rotation="0 0 0" openclosedrawer></a-gltf-model>
-      </a-gltf-model>
+      <a-entity id="twoCabinet" position="0 0.75 -1" >
+        <a-gltf-model src="#cabinet" position="0 0 0" scale="0.1 0.1 0.1" rotation="0 270 0">
+          <a-gltf-model src="#bigdrawer" position="0 0 0.1" scale="1 1 1" rotation="0 0 0" openclosedrawer></a-gltf-model>
+        </a-gltf-model>
+        <a-gltf-model src="#cabinet" position="0.675 0 0" scale="0.1 0.1 0.1" rotation="0 270 0">
+          <a-gltf-model src="#bigdrawer" position="0 0 0.1" scale="1 1 1" rotation="0 0 0" openclosedrawer></a-gltf-model>
+        </a-gltf-model>
+      </a-entity>
         
+      <a-entity id="twoCupboard" position="0 2 -1">
+        <a-gltf-model src="#cupboard" position="0 0 0" scale = "0.1 0.1 0.1" rotation="0 270 0">
+          <a-gltf-model src="#cupboardleftdoor" position="2.7 0 6.7" openclosedoor></a-gltf-model>
+          <a-gltf-model src="#cupboardrightdoor" position="2.7 0 0" openclosedoor="open:0 90 0" ></a-gltf-model>
+        </a-gltf-model>
+        <a-gltf-model src="#cupboard" position="0.65 0 0" scale = "0.1 0.1 0.1" rotation="0 270 0">
+          <a-gltf-model src="#cupboardleftdoor" position="2.7 0 6.7" openclosedoor></a-gltf-model>
+          <a-gltf-model src="#cupboardrightdoor" position="2.7 0 0" openclosedoor="open:0 90 0" ></a-gltf-model>
+        </a-gltf-model>
+      </a-entity>
       
-      <a-gltf-model src="#cupboard" position="1 1 -1.3" scale = "0.1 0.1 0.1" rotation="0 270 0">
-        <a-gltf-model src="#cupboardleftdoor" position="2.7 0 6.7" openclosedoor></a-gltf-model>
-        <a-gltf-model src="#cupboardrightdoor" position="2.7 0 0" openclosedoor="open:0 90 0" ></a-gltf-model>
-      </a-gltf-model>
       
-      
-      <a-gltf-model id="clock" src="#uhr" position="0 1 -2" scale="0.5 0.5 0.5" rotation="0 270 0" clockclick>
+      <a-gltf-model id="clock" src="#uhr" position="-1.2 2 -1" scale="0.2 0.2 0.2" rotation="0 270 0" clockclick>
          <a-gltf-model id="hourclockhand" src="#zeiger2" position="0.1 0 0" scale="0.9 0.9 0.9 " rotation="90 0 0" clockhand_roll="hourClockhand"></a-gltf-model>
          <a-gltf-model id="minuteclockhand" src="#zeiger1" position="0.1 0 0" scale="0.9 0.9 0.9" clockhand_roll="minuteClockhand"></a-gltf-model>
          <a-gltf-model id="secondclockhand" src="#zeiger3" position="0.1 0 0" scale="0.9 0.9 0.9" rotation="45 0 0" clockhand_roll></a-gltf-model>
          <a-gltf-model id="30secmarking" src="#marking" position="0.01 0 0" visible="false" sec30></a-gltf-model>
       </a-gltf-model>
 
-     <a-gltf-model id="abwurfmodel" src="#abwurf" position="0 1 -1" scale="0.1 0.1 0.1 " rotation="0 0 0"></a-gltf-model>
-   
-     <a-gltf-model id="carbinetNeww" src="#carbinetNew" position="0 0 0" scale="3 3 3 " rotation="0 0 0"></a-gltf-model>
+      <a-gltf-model id="abwurfmodelbottle" src="#abwurfbottle" position="0 1.475 -1" scale="0.06 0.06 0.06 " rotation="0 45 0">
+        <a-gltf-model id="abwurfmodelcap" src="#abwurfcap" opencloseabwurfcap></a-gltf-model>
+      </a-gltf-model>
       
-    
-      
-      
-      
-      <a-camera>
-        <a-cursor></a-cursor>
+      <a-camera position="0 0.20 0">
+        <a-entity cursor="fuse: true; fuseTimeout: 1000"
+            position="0 0 -0.6"
+            geometry="primitive: ring; radiusInner: 0.006; radiusOuter: 0.01"
+            material="color: black; shader: flat"
+            cursor-submit>
+        </a-entity> 
       </a-camera>
     </a-scene>
   </body>
