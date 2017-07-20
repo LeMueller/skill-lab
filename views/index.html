@@ -39,10 +39,10 @@
         <a-asset-item id="cupboard" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardWithoutDoorsTr.gltf?1500238252275"></a-asset-item>
         <a-asset-item id="cupboardleftdoornew" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorLeftTrObj.gltf?1500242925660"></a-asset-item>
         <a-asset-item id="cupboardleftdoorhandle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorLeftHandleTr.gltf?1500283595354"></a-asset-item>
-        <a-asset-item id="cupboardleftdoorglass" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorLeftGlassTr.gltf?1500285593059"></a-asset-item>
+        <a-asset-item id="cupboardleftdoorglassnew" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorLeftGlassTrOthersite.gltf?1500543553766"></a-asset-item>
         <a-asset-item id="cupboardrightdoornew" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorRightTr.gltf?1500287413571"></a-asset-item>
         <a-asset-item id="cupboardrightdoorhandle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorRightHandleTr.gltf?1500288273203"></a-asset-item>
-        <a-asset-item id="cupboardrightdoorglass" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorRightGlassTr.gltf?1500289096732"></a-asset-item>
+        <a-asset-item id="cupboardrightdoorglassnew" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorRightGlassTrOtherside.gltf?1500544075684"></a-asset-item>
 
         <!--abwurf -->
         <a-asset-item id="abwurfcapnewpivot" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FabwurcapTrnew.gltf?1500463369138"></a-asset-item>
@@ -145,21 +145,21 @@
         <a-gltf-model id="cupboardleft" src="#cupboard" position="0 0 0" scale = "0.1 0.1 0.1" rotation="0 270 0">
           <a-gltf-model src="#cupboardleftdoornew" position="2.7 0 6.8" openclosedoor>
             <a-gltf-model src="#cupboardleftdoorhandle"></a-gltf-model>
-            <a-gltf-model id="glassofcupboard" src="#cupboardleftdoorglass" rotation=""></a-gltf-model>
+            <a-gltf-model id="glassofcupboard" src="#cupboardleftdoorglassnew" rotation=""></a-gltf-model>
           </a-gltf-model>
           <a-gltf-model src="#cupboardrightdoornew" position="2.7 0 0" openclosedoor="open:0 75 0" >
             <a-gltf-model src="#cupboardrightdoorhandle"></a-gltf-model>
-            <a-gltf-model src="#cupboardrightdoorglass"></a-gltf-model>
+            <a-gltf-model src="#cupboardrightdoorglassnew"></a-gltf-model>
           </a-gltf-model>
         </a-gltf-model>
         <a-gltf-model id="cupboardright" src="#cupboard" position="0.676 0 0" scale = "0.1 0.1 0.1" rotation="0 270 0">
           <a-gltf-model src="#cupboardleftdoornew" position="2.7 0 6.78" openclosedoor="open: 0 -75 0">
             <a-gltf-model src="#cupboardleftdoorhandle"></a-gltf-model>
-            <a-gltf-model src="#cupboardleftdoorglass"></a-gltf-model>
+            <a-gltf-model src="#cupboardleftdoorglassnew"></a-gltf-model>
           </a-gltf-model>
           <a-gltf-model src="#cupboardrightdoornew" position="2.7 0 0" openclosedoor="open:0 90 0" >
             <a-gltf-model src="#cupboardrightdoorhandle"></a-gltf-model>
-            <a-gltf-model src="#cupboardrightdoorglass"></a-gltf-model>
+            <a-gltf-model src="#cupboardrightdoorglassnew"></a-gltf-model>
           </a-gltf-model>
         </a-gltf-model>
       </a-entity>
@@ -175,25 +175,25 @@
       </a-gltf-model>
 
       <!--abwurf -->
-      <a-gltf-model id="abwurfmodelbottle" src="#abwurfTrbottom" position="0 1.475 -1" scale="0.06 0.06 0.06 " rotation="0 45 0">
+      <a-gltf-model id="abwurfmodelbottle" src="#abwurfTrbottom" position="0.00 1.495 -0.93" scale="0.06 0.06 0.06 " rotation="0 45 0">
         <a-gltf-model src="#abwurfTrtop" ></a-gltf-model>
         <a-gltf-model src="#abwurfTrmiddle"></a-gltf-model>
         <a-gltf-model id="abwurfmodelcapnewpivot" src="#abwurfcapnewpivot" position="0.568 1.336 0.055" opencloseabwurfcap></a-gltf-model>
       </a-gltf-model>
       
-      <a-gltf-model src="#bottle" scale="0.1 0.1 0.1" position="0 1.68 -0.2" rotation="0 270 0">
+      <a-gltf-model src="#bottle" scale="0.1 0.1 0.1" position="-0.27 2.057 -0.83" rotation="0 270 0">
         <a-gltf-model src="#bottlewaterbottom"></a-gltf-model>
         <a-gltf-model src="#bottledecker" position="0 0.904 0"></a-gltf-model>
         <a-gltf-model src="#naci500"></a-gltf-model>
       </a-gltf-model>
       
-      <a-gltf-model src="#bottle" scale="0.12 0.12 0.12" position="-0.32 2.071 -0.83" rotation="0 270 0">
+      <a-gltf-model src="#bottle" scale="0.12 0.12 0.12" position="-0.12 2.071 -0.83" rotation="0 270 0">
         <a-gltf-model src="#bottlewaterbottom"></a-gltf-model>
         <a-gltf-model src="#bottledecker" position="0 0.904 0"></a-gltf-model>
         <a-gltf-model src="#naci1000"></a-gltf-model>
       </a-gltf-model>
       
-      <a-gltf-model src="#bottle" scale="0.1 0.1 0.1" position="-0.19 2.055 -0.83" rotation="0 270 0">
+      <a-gltf-model src="#bottle" scale="0.1 0.1 0.1" position="-0.19 2.263 -0.83" rotation="0 270 0">
         <a-gltf-model src="#bottlewaterbottom"></a-gltf-model>
         <a-gltf-model src="#bottledecker" position="0 0.904 0"></a-gltf-model>
         <a-gltf-model src="#g5500"></a-gltf-model>
@@ -202,8 +202,8 @@
       <!--camera -->
       <a-camera position="0 0.20 0">
         <a-entity cursor="fuse: false; fuseTimeout: 1000; near: 0.001"
-            position="0 0 -0.6"
-            geometry="primitive: ring; radiusInner: 0.006; radiusOuter: 0.01"
+            position="0.000 0.000 -0.08"
+            geometry="primitive: ring; radiusInner: 0.0008; radiusOuter: 0.0013"
             material="color: black; shader: flat"
             cursor-submit>
         </a-entity> 
