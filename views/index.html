@@ -49,13 +49,20 @@
         <a-asset-item id="abwurfTrbottom" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FabwurfTrbottom.gltf?1500453690338"></a-asset-item>
         <a-asset-item id="abwurfTrtop" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FabwurfTrtop.gltf?1500455378458"></a-asset-item>
         <a-asset-item id="abwurfTrmiddle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FabwurfTr3middle.gltf?1500458581850"></a-asset-item>
-        
+        <!-- bottle -->
         <a-asset-item id="bottle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fflascheonesite.gltf?1500468634941"></a-asset-item>
         <a-asset-item id="bottlewaterbottom" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fflaschewaterbottomblue.gltf?1500469398281"></a-asset-item>
         <a-asset-item id="bottledecker" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fdecker.gltf?1500483406788"></a-asset-item>
         <a-asset-item id="naci500" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Flabelsnaci500.gltf?1500485656692"></a-asset-item>
         <a-asset-item id="naci1000" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Flabelsnaci1000.gltf?1500486311349"></a-asset-item>
         <a-asset-item id="g5500" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Flabelsg5500.gltf?1500487771955"></a-asset-item>
+        <!-- glave -->
+        <a-asset-item id="handschuhebox" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuhebox.gltf?1500549239836"></a-asset-item>
+        <a-asset-item id="handschuheregal" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuheregal.gltf?1500558955471"></a-asset-item>
+        <a-asset-item id="handschuhelabelsl" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuhelabelsl.gltf?1500560133374"></a-asset-item>
+        <a-asset-item id="handschuhelabelss" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuhelabelss.gltf?1500560777479"></a-asset-item>
+        <a-asset-item id="handschuhelabelsm" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuhelabelsm.gltf?1500560953999"></a-asset-item>
+        <a-asset-item id="handschuheboxhole" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuheboxhole.gltf?1500562033349"></a-asset-item>
 
         
       </a-assets>
@@ -181,6 +188,7 @@
         <a-gltf-model id="abwurfmodelcapnewpivot" src="#abwurfcapnewpivot" position="0.568 1.336 0.055" opencloseabwurfcap></a-gltf-model>
       </a-gltf-model>
       
+      <!-- bottle -->
       <a-gltf-model src="#bottle" scale="0.1 0.1 0.1" position="-0.27 2.057 -0.83" rotation="0 270 0">
         <a-gltf-model src="#bottlewaterbottom"></a-gltf-model>
         <a-gltf-model src="#bottledecker" position="0 0.904 0"></a-gltf-model>
@@ -198,6 +206,25 @@
         <a-gltf-model src="#bottledecker" position="0 0.904 0"></a-gltf-model>
         <a-gltf-model src="#g5500"></a-gltf-model>
       </a-gltf-model>
+      
+      <!-- glave -->
+      <a-entity id="glaveboxstand" position="1.0 1.891 -1.0">
+        <a-gltf-model src="#handschuheregal" position="0 0 0" scale="0.3 0.3 0.3">
+          <a-gltf-model src="#handschuhebox"></a-gltf-model>
+          <a-gltf-model src="#handschuhelabelsl"></a-gltf-model>
+          <a-gltf-model src="#handschuheboxhole"></a-gltf-model>
+        </a-gltf-model>
+        <a-gltf-model src="#handschuheregal" position="0 -0.14 0" scale="0.3 0.3 0.3">
+          <a-gltf-model src="#handschuhebox"></a-gltf-model>
+          <a-gltf-model src="#handschuhelabelss"></a-gltf-model>
+          <a-gltf-model src="#handschuheboxhole"></a-gltf-model>
+        </a-gltf-model>
+        <a-gltf-model src="#handschuheregal" position="0 -0.28 0" scale="0.3 0.3 0.3">
+          <a-gltf-model src="#handschuhebox"></a-gltf-model>
+          <a-gltf-model src="#handschuhelabelsm"></a-gltf-model>
+          <a-gltf-model src="#handschuheboxhole"></a-gltf-model>
+        </a-gltf-model>
+      </a-entity>
       
       <!--camera -->
       <a-camera position="0 0.20 0">
