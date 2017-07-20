@@ -85,7 +85,7 @@ AFRAME.registerComponent('clockclick', {
               var plat30sec=document.createElement("a-gltf-model");
               
               plat30sec.setAttribute("id","plat30");
-              plat30sec.setAttribute("src","#marking");
+              plat30sec.setAttribute("src","#markingnew");
               plat30sec.setAttribute("position", "0.01 0 0");
               plat30sec.setAttribute("rotation", getPlat30Rotation());
 
