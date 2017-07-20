@@ -63,6 +63,7 @@
         <a-asset-item id="handschuhelabelss" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuhelabelss.gltf?1500560777479"></a-asset-item>
         <a-asset-item id="handschuhelabelsm" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuhelabelsm.gltf?1500560953999"></a-asset-item>
         <a-asset-item id="handschuheboxhole" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuheboxhole.gltf?1500562033349"></a-asset-item>
+        <a-asset-item id="handschuhe" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fglave.gltf?1500563605025"></a-asset-item>
 
         
       </a-assets>
@@ -208,23 +209,28 @@
       </a-gltf-model>
       
       <!-- glave -->
-      <a-entity id="glaveboxstand" position="1.0 1.891 -1.0">
+      <a-entity id="glaveboxstand" position="0.6 1.891 -1.0">
         <a-gltf-model src="#handschuheregal" position="0 0 0" scale="0.3 0.3 0.3">
           <a-gltf-model src="#handschuhebox"></a-gltf-model>
           <a-gltf-model src="#handschuhelabelsl"></a-gltf-model>
           <a-gltf-model src="#handschuheboxhole"></a-gltf-model>
+          <a-gltf-model id="glave" src="#handschuhe" scale="0.04 0.04 0.04" position="0.15 0 0.23" rotation="0 150 0"></a-gltf-model>
         </a-gltf-model>
         <a-gltf-model src="#handschuheregal" position="0 -0.14 0" scale="0.3 0.3 0.3">
           <a-gltf-model src="#handschuhebox"></a-gltf-model>
           <a-gltf-model src="#handschuhelabelss"></a-gltf-model>
           <a-gltf-model src="#handschuheboxhole"></a-gltf-model>
+          <a-gltf-model src="#handschuhe" scale="0.04 0.04 0.04" position="0.15 0 0.23" rotation="0 150 0"></a-gltf-model>
         </a-gltf-model>
         <a-gltf-model src="#handschuheregal" position="0 -0.28 0" scale="0.3 0.3 0.3">
           <a-gltf-model src="#handschuhebox"></a-gltf-model>
           <a-gltf-model src="#handschuhelabelsm"></a-gltf-model>
           <a-gltf-model src="#handschuheboxhole"></a-gltf-model>
+          <a-gltf-model src="#handschuhe" scale="0.04 0.04 0.04" position="0.15 0 0.23" rotation="0 150 0"></a-gltf-model>
         </a-gltf-model>
       </a-entity>
+      
+      
       
       <!--camera -->
       <a-camera position="0 0.20 0">
