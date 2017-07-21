@@ -64,6 +64,11 @@
         <a-asset-item id="handschuhelabelsm" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuhelabelsm.gltf?1500560953999"></a-asset-item>
         <a-asset-item id="handschuheboxhole" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuheboxhole.gltf?1500562033349"></a-asset-item>
         <a-asset-item id="handschuhe" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fglave.gltf?1500563605025"></a-asset-item>
+        
+        <a-asset-item id="mappebackground" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FMappeBackgroundObj.gltf?1500628553747"></a-asset-item>
+        <a-asset-item id="mappeforeground" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FMappeForegroundObj.gltf?1500628643658"></a-asset-item>
+        <a-asset-item id="mappedocument" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FMappedocument.gltf?1500630666354"></a-asset-item>
+        <a-asset-item id="mappecolorstreak" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FMappecolorstreak.gltf?1500630888255"></a-asset-item>
 
         
       </a-assets>
@@ -230,7 +235,12 @@
         </a-gltf-model>
       </a-entity>
       
-      
+      <a-gltf-model src="#mappebackground" scale="0.1 0.1 0.1" position="-0.57 1.434 -0.94" rotation="0 -90 -1.43">
+        <a-gltf-model src="#mappeforeground"></a-gltf-model>
+        <a-gltf-model src="#mappedocument"></a-gltf-model>
+        <a-gltf-model src="#mappecolorstreak"></a-gltf-model>
+      </a-gltf-model>
+
       
       <!--camera -->
       <a-camera position="0 0.20 0">
