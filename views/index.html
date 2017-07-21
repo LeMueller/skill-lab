@@ -64,13 +64,26 @@
         <a-asset-item id="handschuhelabelsm" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuhelabelsm.gltf?1500560953999"></a-asset-item>
         <a-asset-item id="handschuheboxhole" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuheboxhole.gltf?1500562033349"></a-asset-item>
         <a-asset-item id="handschuhe" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fglave.gltf?1500563605025"></a-asset-item>
-        
+        <!-- mappe -->
         <a-asset-item id="mappebackground" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FMappeBackgroundObj.gltf?1500628553747"></a-asset-item>
         <a-asset-item id="mappeforeground" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FMappeForegroundObj.gltf?1500628643658"></a-asset-item>
         <img id="mappedocumentimg" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FAusgef%C3%BCllte%20Dokumentationsmappe.png?1500630635026">
-        <img id="mappecolorstreakimg" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FFarbestrefen.png?1500630844685">        
+        <img id="mappecolorstreakimg" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FFarbestrefen.png?1500630844685">
+        <!-- poster -->
         <img id="poster" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FHaendedesinfektion_(Braun).jpg?1500631968584">
 
+        <!-- handedesinfektion -->
+        <a-asset-item id="handedesinfektionbox" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandedesinfectionbox.gltf?1500640011382"></a-asset-item>
+        <a-asset-item id="handedesinfektionopening" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandedesinfectionopening.gltf?1500640423247"></a-asset-item>
+        <a-asset-item id="handedesinfektionbottle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandedesinfektionbottle.gltf?1500638958773"></a-asset-item>
+        <a-asset-item id="handedesinfektionwater" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandedesinfektionwater.gltf?1500639347319"></a-asset-item>
+        <a-asset-item id="handedesinfektionhandle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandedesinhandle.gltf?1500639621314"></a-asset-item>
+        <img id="handedesinfektionlabel" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fdesinfektionsmittel.jpg?1500640564332">
+        
+        <a-asset-item id="tuchdose" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftuchdose.gltf?1500642654284"></a-asset-item>
+        <a-asset-item id="tuchdosedecker" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftuchdosedecker.gltf?1500642923590"></a-asset-item>
+        <a-asset-item id="tuchindose" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftuchindose.gltf?1500643789618"></a-asset-item>
+        <a-asset-item id="tuchdoselabel" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftuchdoselabel.gltf?1500644542372"></a-asset-item>
         
       </a-assets>
       
@@ -243,6 +256,21 @@
       </a-gltf-model>
 
       <a-image src="#poster" scale="0.6 0.6 0.6" position="-1.88 1.607 -0.98"></a-image>
+      
+      <a-gltf-model src="#handedesinfektionbox" position="-1.18 1.492 -0.9" scale="0.4 0.4 0.4">
+        <a-gltf-model src="#handedesinfektionopening"></a-gltf-model>
+        <a-gltf-model src="#handedesinfektionhandle"></a-gltf-model>
+        <a-gltf-model src="#handedesinfektionbottle">
+          <a-gltf-model src="#handedesinfektionwater"></a-gltf-model>
+          <a-image src="#handedesinfektionlabel" position="0 -0.13 0" scale="0.266 0.301 1"></a-image>
+        </a-gltf-model>
+      </a-gltf-model>
+      
+      <a-gltf-model src="#tuchdose" position="0.22 1.428 -0.9" rotation="0 128 0" scale="0.15 0.15 0.15">
+        <a-gltf-model src="#tuchdosedecker" position="0.017 0.59 0" rotation="-2.75 27.67 2.75" scale="0.3 0.3 0.3"></a-gltf-model>
+        <a-gltf-model src="#tuchindose" position="0 0.096 -0.05" rotation="0 -174 0" scale="0.8 0.8 0.8"></a-gltf-model>
+        <a-gltf-model src="#tuchdoselabel" position="-0.03 0 -0.08" rotation="0 180 0" scale=""></a-gltf-model>
+      </a-gltf-model>
       
       <!--camera -->
       <a-camera position="0 0.20 0">
