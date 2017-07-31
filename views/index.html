@@ -7,6 +7,7 @@
     <script src="../js/clock.js"></script>
     <script src="../js/opencloseabwurfcap.js"></script>
     <script src="../js/cursorsubmit.js"></script>
+    <script src="../js/bottleactivity.js"></script>
 
     <script>
       
@@ -122,7 +123,7 @@
       <a-light type="point" intensity="0.8" position="0 2 0"></a-light>
 
       <!--cabinet -->
-      <a-entity id="twoCabinet" position="0 0.75 -1" >
+      <a-entity id="twoCabinet" position="0 0 -1" >
         <a-gltf-model src="#cabinetnew" position="0 0 0" scale="0.1 0.1 0.1" rotation="0 270 0">
           
           <a-gltf-model src="#smalldrawernew" position="0 5.43 3.41" scale="1 1 1" rotation="0 0 0" openclosedrawer="open: 1.8 5.43 3.41; close: 0 5.43 3.41">
@@ -202,7 +203,7 @@
       </a-entity>
       
       <!--cupboard --> 
-      <a-entity id="twoCupboard" position="0 2 -1">
+      <a-entity id="twoCupboard" position="0 1.35 -1">
         <a-gltf-model id="cupboardleft" src="#cupboard" position="0 0 0" scale = "0.1 0.1 0.1" rotation="0 270 0">
           <a-gltf-model src="#cupboardleftdoornew" position="2.7 0 6.8" openclosedoor>
             <a-gltf-model src="#cupboardleftdoorhandle"></a-gltf-model>
@@ -226,7 +227,7 @@
       </a-entity>
       
       <!--clock -->
-      <a-gltf-model id="clock" src="#clocksrc" position="-1.2 2 -1" scale="0.2 0.2 0.2" rotation="0 270 0" clockclick>
+      <a-gltf-model id="clock" src="#clocksrc" position="-1.2 1.35 -1" scale="0.2 0.2 0.2" rotation="0 270 0" clockclick>
          <a-gltf-model id="hourclockhand" src="#pointer2" position="0.1 0 0" scale="0.9 0.9 0.9 " rotation="90 0 0" clockhand_roll="hourClockhand"></a-gltf-model>
          <a-gltf-model id="minuteclockhand" src="#pointer1" position="0.1 0 0" scale="0.9 0.9 0.9" clockhand_roll="minuteClockhand"></a-gltf-model>
          <a-gltf-model id="secondclockhand" src="#pointer3" position="0.1 0 0" scale="0.9 0.9 0.9" rotation="45 0 0" clockhand_roll></a-gltf-model>
@@ -236,33 +237,35 @@
       </a-gltf-model>
 
       <!--abwurf -->
-      <a-gltf-model id="abwurfmodelbottle" src="#abwurfTrbottom" position="0.00 1.495 -0.93" scale="0.06 0.06 0.06 " rotation="0 45 0">
+      <a-gltf-model id="abwurfmodelbottle" src="#abwurfTrbottom" position="0.00 0.746 -0.93" scale="0.06 0.06 0.06 " rotation="0 45 0">
         <a-gltf-model src="#abwurfTrtop" ></a-gltf-model>
         <a-gltf-model src="#abwurfTrmiddle"></a-gltf-model>
         <a-gltf-model id="abwurfmodelcapnewpivot" src="#abwurfcapnewpivot" position="0.568 1.336 0.055" opencloseabwurfcap></a-gltf-model>
       </a-gltf-model>
       
       <!-- bottle -->
-      <a-gltf-model src="#bottle" scale="0.1 0.1 0.1" position="-0.27 2.057 -0.83" rotation="0 270 0">
+      <a-gltf-model src="#bottle" scale="0.1 0.1 0.1" position="-0.27 1.410 -0.83" rotation="0 270 0" 
+                    bottleactivity__movetocamera="event:movetocamera" bottleactivity__rotatetobacksite="event:rotatetobacksite" bottleactivity__rotatetotopsite="event:rotatetotopsite"
+                    bottleactivity__movetodesk="event:movetodesk" bottleactivity__takeoffcap="event:takeoffcap" bottleactivity__hang="event:hang">
         <a-gltf-model src="#bottlewaterbottom"></a-gltf-model>
-        <a-gltf-model src="#bottledecker" position="0 0.904 0"></a-gltf-model>
+        <a-gltf-model id="bottlecap" src="#bottledecker" position="0 0.904 0"></a-gltf-model>
         <a-gltf-model src="#naci500"></a-gltf-model>
       </a-gltf-model>
       
-      <a-gltf-model src="#bottle" scale="0.12 0.12 0.12" position="-0.12 2.071 -0.83" rotation="0 270 0">
+      <a-gltf-model src="#bottle" scale="0.12 0.12 0.12" position="-0.12 1.42 -0.83" rotation="0 270 0">
         <a-gltf-model src="#bottlewaterbottom"></a-gltf-model>
         <a-gltf-model src="#bottledecker" position="0 0.904 0"></a-gltf-model>
         <a-gltf-model src="#naci1000"></a-gltf-model>
       </a-gltf-model>
       
-      <a-gltf-model src="#bottle" scale="0.1 0.1 0.1" position="-0.19 2.263 -0.83" rotation="0 270 0">
+      <a-gltf-model src="#bottle" scale="0.1 0.1 0.1" position="-0.19 1.612 -0.83" rotation="0 270 0">
         <a-gltf-model src="#bottlewaterbottom"></a-gltf-model>
         <a-gltf-model src="#bottledecker" position="0 0.904 0"></a-gltf-model>
         <a-gltf-model src="#g5500"></a-gltf-model>
       </a-gltf-model>
       
       <!-- glave -->
-      <a-entity id="glaveboxstand" position="0.6 1.891 -1.0">
+      <a-entity id="glaveboxstand" position="0.6 1.141 -1.0">
         <a-gltf-model src="#handschuheregal" position="0 0 0" scale="0.3 0.3 0.3">
           <a-gltf-model src="#handschuhebox"></a-gltf-model>
           <a-gltf-model src="#handschuhelabelsl"></a-gltf-model>
@@ -283,15 +286,15 @@
         </a-gltf-model>
       </a-entity>
       
-      <a-gltf-model src="#mappebackground" scale="0.1 0.1 0.1" position="-0.57 1.434 -0.94" rotation="0 -90 -1.43">
+      <a-gltf-model src="#mappebackground" scale="0.1 0.1 0.1" position="-0.57 0.684 -0.94" rotation="0 -90 -1.43">
         <a-gltf-model src="#mappeforeground"></a-gltf-model>
         <a-image src="#mappedocumentimg" position="0.512 0.011 -0.02" rotation="-90 -90 180" scale="1.658 1.000 1"></a-image>
         <a-image src="#mappecolorstreakimg" position="1.096 0.005 -0.32" rotation="-90 -90 180" scale="0.938 0.148 1"></a-image>        
       </a-gltf-model>
 
-      <a-image src="#poster" scale="0.6 0.6 0.6" position="-1.88 1.607 -0.98"></a-image>
+      <a-image src="#poster" scale="0.6 0.6 0.6" position="-1.88 0.857 -0.98"></a-image>
       
-      <a-gltf-model src="#handedesinfektionbox" position="-1.18 1.492 -0.9" scale="0.4 0.4 0.4">
+      <a-gltf-model src="#handedesinfektionbox" position="-1.18 0.742 -0.9" scale="0.4 0.4 0.4">
         <a-gltf-model src="#handedesinfektionopening"></a-gltf-model>
         <a-gltf-model src="#handedesinfektionhandle"></a-gltf-model>
         <a-gltf-model src="#handedesinfektionbottle">
@@ -300,47 +303,47 @@
         </a-gltf-model>
       </a-gltf-model>
       
-      <a-gltf-model src="#tuchdose" position="0.22 1.428 -0.9" rotation="0 128 0" scale="0.15 0.15 0.15">
+      <a-gltf-model src="#tuchdose" position="0.22 0.678 -0.9" rotation="0 128 0" scale="0.15 0.15 0.15">
         <a-gltf-model src="#tuchdosedecker" position="0.017 0.59 0" rotation="-2.75 27.67 2.75" scale="0.3 0.3 0.3"></a-gltf-model>
         <a-gltf-model src="#tuchindose" position="0 0.096 -0.05" rotation="0 -174 0" scale="0.8 0.8 0.8"></a-gltf-model>
         <a-gltf-model src="#tuchdoselabel" position="-0.03 0 -0.08" rotation="0 180 0" scale=""></a-gltf-model>
       </a-gltf-model>
       
-      <a-gltf-model src="#standert" position="1.332 0.093 -0.65" rotation="0 0 0" scale="0.5 0.5 0.5"></a-gltf-model>
+      <a-gltf-model  src="#standert" position="1.332 0 -0.65" rotation="0 0 0" scale="0.5 0.5 0.5"></a-gltf-model>
       
-      <a-gltf-model src="#tuch" position="0.045 1.432 -0.81" rotation="" scale="0.1 0.1 0.1"></a-gltf-model>
+      <a-gltf-model id="tuchobj" src="#tuch" position="0.045 0.679 -0.81" rotation="" scale="0.1 0.1 0.1"></a-gltf-model>
       
-      <a-gltf-model src="#etikettenstapelbox" position="0.412 1.431 -0.94" rotation="0 -90 0" scale="0.06 0.06 0.06">
+      <a-gltf-model src="#etikettenstapelbox" position="0.412 0.679 -0.94" rotation="0 -90 0" scale="0.06 0.06 0.06">
         <a-gltf-model src="#etikettenstapelpaper" position="" rotation="" scale="">
           <a-image src="#namelabelempty" position="0 0.359 0" rotation="-90 90 0" scale="1.924 1 1"></a-image>     
         </a-gltf-model>
       </a-gltf-model>
       
       <!-- infusionopen with cap and rad
-      <a-gltf-model src="#Infusionopen" position="0 1.577 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
+      <a-gltf-model src="#Infusionopen" position="0 0.827 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
         <a-gltf-model src="#Infusionopencap" position="" rotation="" scale=""></a-gltf-model>
         <a-gltf-model src="#Infusionopenrad" position="" rotation="" scale=""></a-gltf-model>
       </a-gltf-model>
       -->
       
       <!-- infusion in bottle
-      <a-gltf-model src="#Infusioninbottle" position="0 1.577 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1"></a-gltf-model>
+      <a-gltf-model src="#Infusioninbottle" position="0 0.827 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1"></a-gltf-model>
       -->
       <!-- infusion in bottle
-      <a-gltf-model src="#Infusionhanging" position="0 1.577 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
+      <a-gltf-model src="#Infusionhanging" position="0 0.827 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
         <a-gltf-model src="#Infusionfilling" position="" rotation="" scale=""></a-gltf-model>
         <a-gltf-model src="#Infusionhangingrad" position="" rotation="" scale=""></a-gltf-model>
       </a-gltf-model>
       -->
       <!-- infusion in bottle filled
-      <a-gltf-model src="#Infusionfillingwaterblue" position="0 1.577 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
+      <a-gltf-model src="#Infusionfillingwaterblue" position="0 0.827 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
         <a-gltf-model src="#Infusionfilling" position="" rotation="" scale=""></a-gltf-model>
         <a-gltf-model src="#Infusionhangingrad" position="" rotation="" scale=""></a-gltf-model>
       </a-gltf-model>
       -->
       
       <!-- infusion hanged
-      <a-gltf-model src="#Infusionbefestigt" position="0 1.577 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
+      <a-gltf-model src="#Infusionbefestigt" position="0 0.827 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
         <a-gltf-model src="#Infusionbefestigtfilling" position="" rotation="" scale=""></a-gltf-model>
         <a-gltf-model src="#Infusionbefestigtrad" position="" rotation="" scale=""></a-gltf-model>
       </a-gltf-model>
@@ -348,7 +351,7 @@
       
       
       <!--camera -->
-      <a-camera position="0 0.20 0">
+      <a-camera position="0 -0.5 0">
         <a-entity cursor="fuse: false; fuseTimeout: 1000; near: 0.001"
             position="0.000 0.000 -0.08"
             geometry="primitive: ring; radiusInner: 0.0008; radiusOuter: 0.0013"
