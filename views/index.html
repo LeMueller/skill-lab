@@ -1,20 +1,21 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title> Skill-Lab</title>
     <script src="../js/openclosedrawer.js"></script>
     <script src="../js/openclosedoor.js"></script>
     <script src="../js/clock.js"></script>
     <script src="../js/opencloseabwurfcap.js"></script>
     <script src="../js/cursorsubmit.js"></script>
-    <script src="../js/bottleactivity.js"></script>
+    <script src="../js/bottleactivity2.js"></script>
 
     <script>
       
     </script>
   </head>
   <body>
-    <a-scene>
+    <a-scene id="scene">
       
       <a-assets>
         <!--
@@ -244,10 +245,14 @@
       </a-gltf-model>
       
       <!-- bottle -->
-      <a-gltf-model src="#bottle" scale="0.1 0.1 0.1" position="-0.27 1.410 -0.83" rotation="0 270 0" 
+      <!--
+      <a-gltf-model id="nacl500" src="#bottle" scale="0.1 0.1 0.1" position="-0.27 1.410 -0.83" rotation="0 270 0" 
                     bottleactivity__movetocamera="event:movetocamera" bottleactivity__rotatetobacksite="event:rotatetobacksite" bottleactivity__rotatetotopsite="event:rotatetotopsite"
                     bottleactivity__movetodesk="event:movetodesk" bottleactivity__takeoffcap="event:takeoffcap" bottleactivity__hang="event:hang">
-        <a-gltf-model src="#bottlewaterbottom"></a-gltf-model>
+      -->
+      <a-gltf-model id="nacl500" src="#bottle" scale="0.1 0.1 0.1" position="-0.27 1.410 -0.83" rotation="0 270 0" 
+                    bottleactivity2 >
+        <a-gltf-model id="water" src="#bottlewaterbottom"></a-gltf-model>
         <a-gltf-model id="bottlecap" src="#bottledecker" position="0 0.904 0"></a-gltf-model>
         <a-gltf-model src="#naci500"></a-gltf-model>
       </a-gltf-model>
