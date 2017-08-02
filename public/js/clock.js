@@ -80,12 +80,12 @@ AFRAME.registerComponent('clockclick', {
           var data= this.data;
           var el= this.el;
 
-          el.onclick=function(ev){
+          el.addEventListener("handwashing",function(ev){
             if(el.querySelector('#plat30')==null){
               var plat30sec=document.createElement("a-gltf-model");
               
               plat30sec.setAttribute("id","plat30");
-              plat30sec.setAttribute("src","#marking");
+              plat30sec.setAttribute("src","#markingnew");
               plat30sec.setAttribute("position", "0.01 0 0");
               plat30sec.setAttribute("rotation", getPlat30Rotation());
 
@@ -100,6 +100,6 @@ AFRAME.registerComponent('clockclick', {
             
             //alert(el.querySelector('#plat30'));
 
-          };
+          });
         }
       });

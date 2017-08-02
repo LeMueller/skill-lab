@@ -1,84 +1,370 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title> Skill-Lab</title>
     <script src="../js/openclosedrawer.js"></script>
     <script src="../js/openclosedoor.js"></script>
     <script src="../js/clock.js"></script>
+    <script src="../js/opencloseabwurfcap.js"></script>
+    <script src="../js/cursorsubmit.js"></script>
+    <script src="../js/bottleactivity2.js"></script>
+    <script src="../js/handwashing.js"></script>
+    <script src="../js/portfolio.js"></script>
 
     <script>
       
     </script>
   </head>
   <body>
-    <a-scene>
+    <a-scene id="scene">
       
-      <a-assets stats>
+      <a-assets>
         <!--
         <img id="skyTexture" src="https://cdn.glitch.com/1bf58326-98a2-4485-80d9-130d8e5aef11%2Fstypetexture.jpg?1496057496405">
         <img id="groundTexture" src="https://cdn.glitch.com/1bf58326-98a2-4485-80d9-130d8e5aef11%2Fgrasstexture.png?1496061773449">
         -->
-        <a-asset-item id="cabinet" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcabinetWithoutDrawers.gltf?1497873729121"></a-asset-item>
-        <a-asset-item id="bigdrawer" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcabinetBigDrawer.gltf?1497873729135"></a-asset-item>
         
-        <a-asset-item id="uhr" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock.gltf?1499070909308"></a-asset-item>
-        <a-asset-item id="zeiger1" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_hand_1_new.gltf?1499330834386"></a-asset-item>
-        <a-asset-item id="zeiger2" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_hand_2_new.gltf?1499332617623"></a-asset-item>
-        <a-asset-item id="zeiger3" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_hand_3_new.gltf?1499332806561"></a-asset-item>
-        <a-asset-item id="marking" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_marking_new.gltf?1499333165729"></a-asset-item>
+        <!--cabinet -->
+        <a-asset-item id="cabinetnew" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcabinetWithoutDrawersTr.gltf?1500290922483"></a-asset-item>
+        <a-asset-item id="bigdrawernew" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcabinetBigDrawerTr.gltf?1500368878420"></a-asset-item>
+        <a-asset-item id="bigdrawerhandle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcabinetBigDrawerHandleTr.gltf?1500291667293"></a-asset-item>
+        <a-asset-item id="smalldrawernew" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcabinetSmallDrawerTr.gltf?1500371096297"></a-asset-item>
+        <a-asset-item id="smalldrawerhandle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcabinetSmallDrawerHandleTr.gltf?1500371856678"></a-asset-item>
         
-        <a-asset-item id="markingcameralight" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_markingcameralight.gltf?1499072411848"></a-asset-item>
+        <!--clock -->
+        <a-asset-item id="clocksrc" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FclockTrObj.gltf?1500402588079"></a-asset-item>
+        <a-asset-item id="pointer1" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_hand_1_Tr.gltf?1500403012231"></a-asset-item>
+        <a-asset-item id="pointer2" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_hand_2_Tr.gltf?1500450184909"></a-asset-item>
+        <a-asset-item id="pointer3" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_hand_3_Tr.gltf?1500450545520"></a-asset-item>
+        <a-asset-item id="markingnew" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fclock_marking_Tr.gltf?1500450818628"></a-asset-item>
         
-        <a-asset-item id="cupboard" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardWithoutDoors.gltf?1499073051069"></a-asset-item>
-        <a-asset-item id="cupboardleftdoor" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorLeft.gltf?1499073442256"></a-asset-item>
-        <a-asset-item id="cupboardrightdoor" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorRight.gltf?1499073146493"></a-asset-item>
+        <!--cupboard -->
+        <a-asset-item id="cupboard" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardWithoutDoorsTr.gltf?1500238252275"></a-asset-item>
+        <a-asset-item id="cupboardleftdoornew" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorLeftTrObj.gltf?1500242925660"></a-asset-item>
+        <a-asset-item id="cupboardleftdoorhandle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorLeftHandleTr.gltf?1500283595354"></a-asset-item>
+        <a-asset-item id="cupboardleftdoorglassnew" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorLeftGlassTrOthersite.gltf?1500543553766"></a-asset-item>
+        <a-asset-item id="cupboardrightdoornew" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorRightTr.gltf?1500287413571"></a-asset-item>
+        <a-asset-item id="cupboardrightdoorhandle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorRightHandleTr.gltf?1500288273203"></a-asset-item>
+        <a-asset-item id="cupboardrightdoorglassnew" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FcupboardDoorRightGlassTrOtherside.gltf?1500544075684"></a-asset-item>
+
+        <!--abwurf -->
+        <a-asset-item id="abwurfcapnewpivot" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FabwurcapTrnew.gltf?1500463369138"></a-asset-item>
+        <a-asset-item id="abwurfTrbottom" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FabwurfTrbottom.gltf?1500453690338"></a-asset-item>
+        <a-asset-item id="abwurfTrtop" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FabwurfTrtop.gltf?1500455378458"></a-asset-item>
+        <a-asset-item id="abwurfTrmiddle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FabwurfTr3middle.gltf?1500458581850"></a-asset-item>
+        <!-- bottle -->
+        <a-asset-item id="bottle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fflascheonesite.gltf?1500468634941"></a-asset-item>
+        <a-asset-item id="bottlewaterbottom" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fflaschewaterbottomblue.gltf?1500469398281"></a-asset-item>
+        <a-asset-item id="bottledecker" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fdecker.gltf?1500483406788"></a-asset-item>
+        <a-asset-item id="naci500" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Flabelsnaci500.gltf?1500485656692"></a-asset-item>
+        <a-asset-item id="naci1000" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Flabelsnaci1000.gltf?1500486311349"></a-asset-item>
+        <a-asset-item id="g5500" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Flabelsg5500.gltf?1500487771955"></a-asset-item>
+        <!-- glave -->
+        <a-asset-item id="handschuhebox" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuhebox.gltf?1500549239836"></a-asset-item>
+        <a-asset-item id="handschuheregal" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuheregal.gltf?1500558955471"></a-asset-item>
+        <a-asset-item id="handschuhelabelsl" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuhelabelsl.gltf?1500560133374"></a-asset-item>
+        <a-asset-item id="handschuhelabelss" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuhelabelss.gltf?1500560777479"></a-asset-item>
+        <a-asset-item id="handschuhelabelsm" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuhelabelsm.gltf?1500560953999"></a-asset-item>
+        <a-asset-item id="handschuheboxhole" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandschuheboxhole.gltf?1500562033349"></a-asset-item>
+        <a-asset-item id="handschuhe" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fglave.gltf?1500563605025"></a-asset-item>
+        <!-- mappe -->
+        <a-asset-item id="mappebackground" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FMappeBackgroundObj.gltf?1500628553747"></a-asset-item>
+        <a-asset-item id="mappeforeground" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FMappeForegroundObj.gltf?1500628643658"></a-asset-item>
+        <img id="mappedocumentimg" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FAusgef%C3%BCllte%20Dokumentationsmappe.png?1500630635026">
+        <img id="mappecolorstreakimg" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FFarbestrefen.png?1500630844685">
+        <!-- poster -->
+        <img id="poster" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FHaendedesinfektion_(Braun).jpg?1500631968584">
+
+        <!-- handedesinfektion -->
+        <a-asset-item id="handedesinfektionbox" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandedesinfectionbox.gltf?1500640011382"></a-asset-item>
+        <a-asset-item id="handedesinfektionopening" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandedesinfectionopening.gltf?1500640423247"></a-asset-item>
+        <a-asset-item id="handedesinfektionbottle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandedesinfektionbottle.gltf?1500638958773"></a-asset-item>
+        <a-asset-item id="handedesinfektionwater" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandedesinfektionwater.gltf?1500639347319"></a-asset-item>
+        <a-asset-item id="handedesinfektionhandle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandedesinhandle.gltf?1500639621314"></a-asset-item>
+        <img id="handedesinfektionlabel" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fdesinfektionsmittel.jpg?1500640564332">
         
-        <a-asset-item id="abwurf" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fabwurf.gltf?1499428370144"></a-asset-item>
+        <a-asset-item id="tuchdose" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftuchdose.gltf?1500642654284"></a-asset-item>
+        <a-asset-item id="tuchdosedecker" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftuchdosedecker.gltf?1500642923590"></a-asset-item>
+        <a-asset-item id="tuchindose" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftuchindose.gltf?1500643789618"></a-asset-item>
+        <a-asset-item id="tuchdoselabel" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftuchdoselabel.gltf?1500644542372"></a-asset-item>
         
-        <a-asset-item id="abwurfobj" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fabwurf.obj?1499428731877"></a-asset-item>
-        <a-asset-item id="abwurfmtl" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fabwurf.mtl?1499428731975"></a-asset-item>
+        <a-asset-item id="standert" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FStandert.gltf?1500646892493"></a-asset-item>
         
-        <a-asset-item id="carbinetNew" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fcabinet.gltf?1499433780366"></a-asset-item>
+        <a-asset-item id="tuch" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftuchimport.gltf?1500653978507"></a-asset-item>
+        
+        <a-asset-item id="etikettenstapelbox" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fetikettenstapelobj.gltf?1500806067322"></a-asset-item>
+        <a-asset-item id="etikettenstapelpaper" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fetikettenstapelpapierobj.gltf?1500807019543"></a-asset-item>
+        <img id="namelabelempty" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fnamelabelempty512.jpg?1500807744172">
+        <img id="namelabelwrote" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fnamelabelwrote512.jpg?1500807744189">
+        
+        <a-asset-item id="Infusionpakungobenteil" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F1_Infusionpakungobenteilinside.gltf?1500885931151"></a-asset-item>
+        <img id="Infusionpakunguntenteil" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FInfusionsbesteckEtikett512.jpg?1500886217298">
+        <a-asset-item id="Infusioninpakungall" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F1_Infusion_pakunall.gltf?1500886926578"></a-asset-item>
+        
+        <a-asset-item id="Infusionopen" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F2_Infusion_open.gltf?1500888828638"></a-asset-item>
+        <a-asset-item id="Infusionopencap" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F2_Infusion_open_cap.gltf?1500888565320"></a-asset-item>
+        <a-asset-item id="Infusionopenrad" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F2_Infusion_open_rad.gltf?1500888712951"></a-asset-item>
+        
+        <a-asset-item id="Infusioninbottle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F5_Infusion_in_bottle.gltf?1500890010028"></a-asset-item>
+        
+        <a-asset-item id="Infusionhanging" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F7_Infusion_hanging.gltf?1500891513364"></a-asset-item>
+        <a-asset-item id="Infusionfilling" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F7_Infusion_filling.gltf?1500891800623"></a-asset-item>
+        <a-asset-item id="Infusionhangingrad" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F7_Infusion_hanging_rad.gltf?1500892011195"></a-asset-item>
+        <a-asset-item id="Infusionfillingwaterblue" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F7_Infusion_filling_waterblue.gltf?1500892567039"></a-asset-item>
+        
+        <a-asset-item id="Infusionbefestigt" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F9_Infusionbefestigt.gltf?1500893362863"></a-asset-item>
+        <a-asset-item id="Infusionbefestigtfilling" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F9_Infusionbefestigtfilling.gltf?1500893564306"></a-asset-item>
+        <a-asset-item id="Infusionbefestigtrad" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F9_Infusionbefestigtrad.gltf?1500893721997"></a-asset-item>
+        
       </a-assets>
       
       
-      <a-sky height="2048" radius="30" theta-length="90" width="2048"></a-sky>
-      
-      <a-plane  rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
-      
-      <a-light type="ambient" color="#445451"></a-light>
-      
-      <a-light type="point" intensity="1" position="2 4 4"></a-light>
-      
-      
-      <a-gltf-model src="#cabinet" position="0 1 -2" scale="0.1 0.1 0.1" rotation="0 270 0">
-        <a-gltf-model src="#bigdrawer" position="0 0 0.1" scale="1 1 1" rotation="0 0 0" openclosedrawer></a-gltf-model>
-      </a-gltf-model>
+      <a-sky height="2048" radius="30" theta-length="90" width="2048"></a-sky>      
+      <a-plane  rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>     
+      <a-light type="ambient" color="#445451"></a-light>    
+      <a-light type="point" intensity="0.8" position="0 2 0"></a-light>
+
+      <!--cabinet -->
+      <a-entity id="twoCabinet" position="0 0 -1" >
+        <a-gltf-model src="#cabinetnew" position="0 0 0" scale="0.1 0.1 0.1" rotation="0 270 0">
+          
+          <a-gltf-model src="#smalldrawernew" position="0 5.43 3.41" scale="1 1 1" rotation="0 0 0" openclosedrawer="open: 1.8 5.43 3.41; close: 0 5.43 3.41">
+            <a-gltf-model src="#smalldrawerhandle">
+            </a-gltf-model>
+          </a-gltf-model>
+          
+          <a-gltf-model src="#smalldrawernew" position="0 4.1 3.41" scale="1 1 1" rotation="0 0 0" openclosedrawer="open: 1.8 4.1 3.41; close: 0 4.1 3.41">
+            <a-gltf-model src="#smalldrawerhandle"></a-gltf-model>
+          </a-gltf-model>
+          
+          <a-gltf-model src="#smalldrawernew" position="0 2.8 3.41" scale="1 1 1" rotation="0 0 0" openclosedrawer="open: 1.8 2.8 3.41; close: 0 2.8 3.41">
+            <a-gltf-model src="#smalldrawerhandle"></a-gltf-model>
+          </a-gltf-model>
+          
+          <a-gltf-model src="#smalldrawernew" position="0 5.43 0.037" scale="1 1 1" rotation="0 0 0" openclosedrawer="open: 1.8 5.43 0.037; close: 0 5.43 0.037">
+            <a-gltf-model src="#smalldrawerhandle"></a-gltf-model>
+          </a-gltf-model>
+          
+          <a-gltf-model src="#smalldrawernew" position="0 4.1 0.037" scale="1 1 1" rotation="0 0 0" openclosedrawer="open: 1.8 4.1 0.037; close: 0 4.1 0.037">
+            <a-gltf-model src="#smalldrawerhandle"></a-gltf-model>
+            <!-- Infusion in Packung -->
+              <a-gltf-model src="#Infusionpakungobenteil" position="1.24 0.339 1.518" rotation="" scale="0.4 0.4 0.4">
+                <a-image src="#Infusionpakunguntenteil" position="-0.25 -0.42 0.112" rotation="90 180 180" scale="2.495 5.478 1"></a-image>
+                <a-gltf-model src="#Infusioninpakungall" position="" rotation="" scale=""></a-gltf-model>
+              </a-gltf-model>
+          </a-gltf-model>
+          
+          <a-gltf-model src="#smalldrawernew" position="0 2.8 0.037" scale="1 1 1" rotation="0 0 0" openclosedrawer="open: 1.8 2.8 0.037; close: 0 2.8 0.037">
+            <a-gltf-model src="#smalldrawerhandle"></a-gltf-model>
+          </a-gltf-model>
+          
+          
+          <a-gltf-model src="#bigdrawernew" position="0 1.4 0.1" scale="1 1 1" rotation="0 0 0" openclosedrawer="open: 1.8 1.4 0.1; close: 0 1.4 0.1">
+            <a-gltf-model src="#bigdrawerhandle"></a-gltf-model>
+          </a-gltf-model>
+          
+          <a-gltf-model src="#bigdrawernew" position="0 0 0.1" scale="1 1 1" rotation="0 0 0" openclosedrawer>
+            <a-gltf-model src="#bigdrawerhandle"></a-gltf-model>
+          </a-gltf-model>
+          
+        </a-gltf-model>
         
+        <a-gltf-model src="#cabinetnew" position="0.675 0 0" scale="0.1 0.1 0.1" rotation="0 270 0">
+          
+          <a-gltf-model src="#smalldrawernew" position="0 5.43 3.41" scale="1 1 1" rotation="0 0 0" openclosedrawer="open: 1.8 5.43 3.41; close: 0 5.43 3.41">
+            <a-gltf-model src="#smalldrawerhandle"></a-gltf-model>
+          </a-gltf-model>
+          
+          <a-gltf-model src="#smalldrawernew" position="0 4.1 3.41" scale="1 1 1" rotation="0 0 0" openclosedrawer="open: 1.8 4.1 3.41; close: 0 4.1 3.41">
+            <a-gltf-model src="#smalldrawerhandle"></a-gltf-model>
+          </a-gltf-model>
+          
+          <a-gltf-model src="#smalldrawernew" position="0 2.8 3.41" scale="1 1 1" rotation="0 0 0" openclosedrawer="open: 1.8 2.8 3.41; close: 0 2.8 3.41">
+            <a-gltf-model src="#smalldrawerhandle"></a-gltf-model>
+          </a-gltf-model>
+          
+          <a-gltf-model src="#smalldrawernew" position="0 5.43 0.037" scale="1 1 1" rotation="0 0 0" openclosedrawer="open: 1.8 5.43 0.037; close: 0 5.43 0.037">
+            <a-gltf-model src="#smalldrawerhandle"></a-gltf-model>
+          </a-gltf-model>
+          
+          <a-gltf-model src="#smalldrawernew" position="0 4.1 0.037" scale="1 1 1" rotation="0 0 0" openclosedrawer="open: 1.8 4.1 0.037; close: 0 4.1 0.037">
+            <a-gltf-model src="#smalldrawerhandle"></a-gltf-model>
+          </a-gltf-model>
+          
+          <a-gltf-model src="#smalldrawernew" position="0 2.8 0.037" scale="1 1 1" rotation="0 0 0" openclosedrawer="open: 1.8 2.8 0.037; close: 0 2.8 0.037">
+            <a-gltf-model src="#smalldrawerhandle"></a-gltf-model>
+          </a-gltf-model>
+          
+          <a-gltf-model src="#bigdrawernew" position="0 1.4 0.1" scale="1 1 1" rotation="0 0 0" openclosedrawer="open: 1.8 1.4 0.1; close: 0 1.4 0.1">
+            <a-gltf-model src="#bigdrawerhandle"></a-gltf-model>
+          </a-gltf-model>
+          <a-gltf-model src="#bigdrawernew" position="0 0 0.1" scale="1 1 1" rotation="0 0 0" openclosedrawer>
+            <a-gltf-model src="#bigdrawerhandle"></a-gltf-model>
+          </a-gltf-model>
+        </a-gltf-model>
+      </a-entity>
       
-      <a-gltf-model src="#cupboard" position="1 1 -1.3" scale = "0.1 0.1 0.1" rotation="0 270 0">
-        <a-gltf-model src="#cupboardleftdoor" position="2.7 0 6.7" openclosedoor></a-gltf-model>
-        <a-gltf-model src="#cupboardrightdoor" position="2.7 0 0" openclosedoor="open:0 90 0" ></a-gltf-model>
-      </a-gltf-model>
+      <!--cupboard --> 
+      <a-entity id="twoCupboard" position="0 1.35 -1">
+        <a-gltf-model id="cupboardleft" src="#cupboard" position="0 0 0" scale = "0.1 0.1 0.1" rotation="0 270 0">
+          <a-gltf-model src="#cupboardleftdoornew" position="2.7 0 6.8" openclosedoor>
+            <a-gltf-model src="#cupboardleftdoorhandle"></a-gltf-model>
+            <a-gltf-model id="glassofcupboard" src="#cupboardleftdoorglassnew" rotation=""></a-gltf-model>
+          </a-gltf-model>
+          <a-gltf-model src="#cupboardrightdoornew" position="2.7 0 0" openclosedoor="open:0 75 0" >
+            <a-gltf-model src="#cupboardrightdoorhandle"></a-gltf-model>
+            <a-gltf-model src="#cupboardrightdoorglassnew"></a-gltf-model>
+          </a-gltf-model>
+        </a-gltf-model>
+        <a-gltf-model id="cupboardright" src="#cupboard" position="0.676 0 0" scale = "0.1 0.1 0.1" rotation="0 270 0">
+          <a-gltf-model src="#cupboardleftdoornew" position="2.7 0 6.78" openclosedoor="open: 0 -75 0">
+            <a-gltf-model src="#cupboardleftdoorhandle"></a-gltf-model>
+            <a-gltf-model src="#cupboardleftdoorglassnew"></a-gltf-model>
+          </a-gltf-model>
+          <a-gltf-model src="#cupboardrightdoornew" position="2.7 0 0" openclosedoor="open:0 90 0" >
+            <a-gltf-model src="#cupboardrightdoorhandle"></a-gltf-model>
+            <a-gltf-model src="#cupboardrightdoorglassnew"></a-gltf-model>
+          </a-gltf-model>
+        </a-gltf-model>
+      </a-entity>
       
-      
-      <a-gltf-model id="clock" src="#uhr" position="0 1 -2" scale="0.5 0.5 0.5" rotation="0 270 0" clockclick>
-         <a-gltf-model id="hourclockhand" src="#zeiger2" position="0.1 0 0" scale="0.9 0.9 0.9 " rotation="90 0 0" clockhand_roll="hourClockhand"></a-gltf-model>
-         <a-gltf-model id="minuteclockhand" src="#zeiger1" position="0.1 0 0" scale="0.9 0.9 0.9" clockhand_roll="minuteClockhand"></a-gltf-model>
-         <a-gltf-model id="secondclockhand" src="#zeiger3" position="0.1 0 0" scale="0.9 0.9 0.9" rotation="45 0 0" clockhand_roll></a-gltf-model>
-         <a-gltf-model id="30secmarking" src="#marking" position="0.01 0 0" visible="false" sec30></a-gltf-model>
+      <!--clock -->
+      <a-gltf-model id="clock" src="#clocksrc" position="-1.2 1.35 -1" scale="0.2 0.2 0.2" rotation="0 270 0" clockclick>
+         <a-gltf-model id="hourclockhand" src="#pointer2" position="0.1 0 0" scale="0.9 0.9 0.9 " rotation="90 0 0" clockhand_roll="hourClockhand"></a-gltf-model>
+         <a-gltf-model id="minuteclockhand" src="#pointer1" position="0.1 0 0" scale="0.9 0.9 0.9" clockhand_roll="minuteClockhand"></a-gltf-model>
+         <a-gltf-model id="secondclockhand" src="#pointer3" position="0.1 0 0" scale="0.9 0.9 0.9" rotation="45 0 0" clockhand_roll></a-gltf-model>
+        <!--
+         <a-gltf-model id="30secmarking" src="#markingnew" position="0.01 0 0" visible="false" sec30></a-gltf-model>
+        -->
       </a-gltf-model>
 
-     <a-gltf-model id="abwurfmodel" src="#abwurf" position="0 1 -1" scale="0.1 0.1 0.1 " rotation="0 0 0"></a-gltf-model>
-   
-     <a-gltf-model id="carbinetNeww" src="#carbinetNew" position="0 0 0" scale="3 3 3 " rotation="0 0 0"></a-gltf-model>
+      <!--abwurf -->
+      <a-gltf-model id="abwurfmodelbottle" src="#abwurfTrbottom" position="0.00 0.746 -0.93" scale="0.06 0.06 0.06 " rotation="0 45 0">
+        <a-gltf-model src="#abwurfTrtop" ></a-gltf-model>
+        <a-gltf-model src="#abwurfTrmiddle"></a-gltf-model>
+        <a-gltf-model id="abwurfmodelcapnewpivot" src="#abwurfcapnewpivot" position="0.568 1.336 0.055" opencloseabwurfcap></a-gltf-model>
+      </a-gltf-model>
       
-    
+      <!-- bottle -->
+      <!--
+      <a-gltf-model id="nacl500" src="#bottle" scale="0.1 0.1 0.1" position="-0.27 1.410 -0.83" rotation="0 270 0" 
+                    bottleactivity__movetocamera="event:movetocamera" bottleactivity__rotatetobacksite="event:rotatetobacksite" bottleactivity__rotatetotopsite="event:rotatetotopsite"
+                    bottleactivity__movetodesk="event:movetodesk" bottleactivity__takeoffcap="event:takeoffcap" bottleactivity__hang="event:hang">
+      -->
+      <a-gltf-model id="nacl500" src="#bottle" scale="0.1 0.1 0.1" position="-0.27 1.410 -0.83" rotation="0 270 0" 
+                    bottleactivity2 >
+        <a-gltf-model id="water" src="#bottlewaterbottom"></a-gltf-model>
+        <a-gltf-model id="bottlecap" src="#bottledecker" position="0 0.904 0"></a-gltf-model>
+        <a-gltf-model src="#naci500"></a-gltf-model>
+      </a-gltf-model>
+      
+      <a-gltf-model src="#bottle" scale="0.12 0.12 0.12" position="-0.12 1.42 -0.83" rotation="0 270 0">
+        <a-gltf-model src="#bottlewaterbottom"></a-gltf-model>
+        <a-gltf-model src="#bottledecker" position="0 0.904 0"></a-gltf-model>
+        <a-gltf-model src="#naci1000"></a-gltf-model>
+      </a-gltf-model>
+      
+      <a-gltf-model src="#bottle" scale="0.1 0.1 0.1" position="-0.19 1.612 -0.83" rotation="0 270 0">
+        <a-gltf-model src="#bottlewaterbottom"></a-gltf-model>
+        <a-gltf-model src="#bottledecker" position="0 0.904 0"></a-gltf-model>
+        <a-gltf-model src="#g5500"></a-gltf-model>
+      </a-gltf-model>
+      
+      <!-- glave -->
+      <a-entity id="glaveboxstand" position="0.6 1.141 -1.0">
+        <a-gltf-model src="#handschuheregal" position="0 0 0" scale="0.3 0.3 0.3">
+          <a-gltf-model src="#handschuhebox"></a-gltf-model>
+          <a-gltf-model src="#handschuhelabelsl"></a-gltf-model>
+          <a-gltf-model src="#handschuheboxhole"></a-gltf-model>
+          <a-gltf-model id="glave" src="#handschuhe" scale="0.04 0.04 0.04" position="0.15 0 0.23" rotation="0 150 0"></a-gltf-model>
+        </a-gltf-model>
+        <a-gltf-model src="#handschuheregal" position="0 -0.14 0" scale="0.3 0.3 0.3">
+          <a-gltf-model src="#handschuhebox"></a-gltf-model>
+          <a-gltf-model src="#handschuhelabelss"></a-gltf-model>
+          <a-gltf-model src="#handschuheboxhole"></a-gltf-model>
+          <a-gltf-model src="#handschuhe" scale="0.04 0.04 0.04" position="0.15 0 0.23" rotation="0 150 0"></a-gltf-model>
+        </a-gltf-model>
+        <a-gltf-model src="#handschuheregal" position="0 -0.28 0" scale="0.3 0.3 0.3">
+          <a-gltf-model src="#handschuhebox"></a-gltf-model>
+          <a-gltf-model src="#handschuhelabelsm"></a-gltf-model>
+          <a-gltf-model src="#handschuheboxhole"></a-gltf-model>
+          <a-gltf-model src="#handschuhe" scale="0.04 0.04 0.04" position="0.15 0 0.23" rotation="0 150 0"></a-gltf-model>
+        </a-gltf-model>
+      </a-entity>
+       <!-- portfolio -->
+      <a-gltf-model src="#mappebackground" scale="0.1 0.1 0.1" position="0 1.109 -0.09" rotation="0 -90 -70" portfolio>
+        <a-gltf-model id="foregroundOfPortfolio" src="#mappeforeground"></a-gltf-model>
+        <a-image src="#mappedocumentimg" position="0.512 0.011 -0.02" rotation="-90 -90 180" scale="1.658 1.000 1"></a-image>
+        <a-image src="#mappecolorstreakimg" position="1.096 0.005 -0.32" rotation="-90 -90 180" scale="0.938 0.148 1"></a-image>        
+      </a-gltf-model>
+
+      <a-image src="#poster" scale="0.6 0.6 0.6" position="-1.88 0.857 -0.98"></a-image>
+      
+      <a-gltf-model src="#handedesinfektionbox" position="-1.18 0.742 -0.9" scale="0.4 0.4 0.4">
+        <a-gltf-model src="#handedesinfektionopening"></a-gltf-model>
+        <a-gltf-model src="#handedesinfektionhandle" handwashing></a-gltf-model>
+        <a-gltf-model src="#handedesinfektionbottle">
+          <a-gltf-model src="#handedesinfektionwater"></a-gltf-model>
+          <a-image src="#handedesinfektionlabel" position="0 -0.13 0" scale="0.266 0.301 1"></a-image>
+        </a-gltf-model>
+      </a-gltf-model>
+      
+      <a-gltf-model src="#tuchdose" position="0.22 0.678 -0.9" rotation="0 128 0" scale="0.15 0.15 0.15">
+        <a-gltf-model src="#tuchdosedecker" position="0.017 0.59 0" rotation="-2.75 27.67 2.75" scale="0.3 0.3 0.3"></a-gltf-model>
+        <a-gltf-model src="#tuchindose" position="0 0.096 -0.05" rotation="0 -174 0" scale="0.8 0.8 0.8"></a-gltf-model>
+        <a-gltf-model src="#tuchdoselabel" position="-0.03 0 -0.08" rotation="0 180 0" scale=""></a-gltf-model>
+      </a-gltf-model>
+      
+      <a-gltf-model  src="#standert" position="1.332 0 -0.65" rotation="0 0 0" scale="0.5 0.5 0.5"></a-gltf-model>
+      
+      <a-gltf-model id="tuchobj" src="#tuch" position="0.045 0.679 -0.81" rotation="" scale="0.1 0.1 0.1"></a-gltf-model>
+      
+      <a-gltf-model src="#etikettenstapelbox" position="0.412 0.679 -0.94" rotation="0 -90 0" scale="0.06 0.06 0.06">
+        <a-gltf-model src="#etikettenstapelpaper" position="" rotation="" scale="">
+          <a-image src="#namelabelempty" position="0 0.359 0" rotation="-90 90 0" scale="1.924 1 1"></a-image>     
+        </a-gltf-model>
+      </a-gltf-model>
+      
+      <!-- infusionopen with cap and rad
+      <a-gltf-model src="#Infusionopen" position="0 0.827 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
+        <a-gltf-model src="#Infusionopencap" position="" rotation="" scale=""></a-gltf-model>
+        <a-gltf-model src="#Infusionopenrad" position="" rotation="" scale=""></a-gltf-model>
+      </a-gltf-model>
+      -->
+      
+      <!-- infusion in bottle
+      <a-gltf-model src="#Infusioninbottle" position="0 0.827 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1"></a-gltf-model>
+      -->
+      <!-- infusion in bottle
+      <a-gltf-model src="#Infusionhanging" position="0 0.827 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
+        <a-gltf-model src="#Infusionfilling" position="" rotation="" scale=""></a-gltf-model>
+        <a-gltf-model src="#Infusionhangingrad" position="" rotation="" scale=""></a-gltf-model>
+      </a-gltf-model>
+      -->
+      <!-- infusion in bottle filled
+      <a-gltf-model src="#Infusionfillingwaterblue" position="0 0.827 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
+        <a-gltf-model src="#Infusionfilling" position="" rotation="" scale=""></a-gltf-model>
+        <a-gltf-model src="#Infusionhangingrad" position="" rotation="" scale=""></a-gltf-model>
+      </a-gltf-model>
+      -->
+      
+      <!-- infusion hanged
+      <a-gltf-model src="#Infusionbefestigt" position="0 0.827 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
+        <a-gltf-model src="#Infusionbefestigtfilling" position="" rotation="" scale=""></a-gltf-model>
+        <a-gltf-model src="#Infusionbefestigtrad" position="" rotation="" scale=""></a-gltf-model>
+      </a-gltf-model>
+      -->
       
       
-      
-      <a-camera>
-        <a-cursor></a-cursor>
+      <!--camera -->
+      <a-camera position="0 -0.5 0">
+        <a-entity cursor="fuse: false; fuseTimeout: 1000; near: 0.001"
+            position="0.000 0.000 -0.08"
+            geometry="primitive: ring; radiusInner: 0.0008; radiusOuter: 0.0013"
+            material="color: black; shader: flat"
+            cursor-submit>
+        </a-entity> 
       </a-camera>
     </a-scene>
   </body>
