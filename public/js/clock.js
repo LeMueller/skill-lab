@@ -80,7 +80,7 @@ AFRAME.registerComponent('clockclick', {
           var data= this.data;
           var el= this.el;
 
-          el.onclick=function(ev){
+          el.addEventListener("handwashing",function(ev){
             if(el.querySelector('#plat30')==null){
               var plat30sec=document.createElement("a-gltf-model");
               
@@ -100,6 +100,6 @@ AFRAME.registerComponent('clockclick', {
             
             //alert(el.querySelector('#plat30'));
 
-          };
+          });
         }
       });

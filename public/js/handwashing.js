@@ -10,9 +10,12 @@ AFRAME.registerComponent('handwashing', {
     var el= this.el;
     var handleusing = false;
     
+    var clock = document.querySelector("#clock");
+    
     el.addEventListener('click', function(){
       handleDownUp(el, data.open, data.close);      
-      
+      //alert(clock);
+      clock.emit("handwashing");
     });
 
     
