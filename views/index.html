@@ -11,6 +11,7 @@
     <script src="../js/bottleactivity2.js"></script>
     <script src="../js/handwashing.js"></script>
     <script src="../js/infusioncutlery.js"></script>
+    <script src="../js/drawerwithinfusioncutlery.js"></script>
     <script src="../js/portfolio.js"></script>
     
     
@@ -145,13 +146,13 @@
             <a-gltf-model src="#smalldrawerhandle"></a-gltf-model>
           </a-gltf-model>
           
-          <a-gltf-model id="drawerWithInfusion" src="#smalldrawernew" position="0 4.1 0.037" scale="1 1 1" rotation="0 0 0" openclosedrawer="open: 1.8 4.1 0.037; close: 0 4.1 0.037">
+          <a-gltf-model id="drawerWithInfusion" src="#smalldrawernew" position="0 4.1 0.037" scale="1 1 1" rotation="0 0 0" drawerwithinfusioncutlery="open: 1.8 4.1 0.037; close: 0 4.1 0.037;">
             <a-gltf-model src="#smalldrawerhandle"></a-gltf-model>
-            <!-- Infusion in Packung -->
-              <a-gltf-model src="#Infusionpakungobenteil" position="1.24 0.339 1.518" rotation="" scale="0.4 0.4 0.4">
-                <a-image src="#Infusionpakunguntenteil" position="-0.25 -0.42 0.112" rotation="90 180 180" scale="2.495 5.478 1"></a-image>
-                <a-gltf-model src="#Infusioninpakungall" position="" rotation="" scale=""></a-gltf-model>
-              </a-gltf-model>
+          </a-gltf-model>
+          <!-- Infusion in Packung -->
+          <a-gltf-model id="infusioninpack" src="#Infusionpakungobenteil" position="1.24 4.439 1.555" rotation="" scale="0.4 0.4 0.4">
+            <a-image src="#Infusionpakunguntenteil" position="-0.25 -0.42 0.112" rotation="90 180 180" scale="2.495 5.478 1"></a-image>
+            <a-gltf-model src="#Infusioninpakungall" position="" rotation="" scale=""></a-gltf-model>
           </a-gltf-model>
           
           <a-gltf-model src="#smalldrawernew" position="0 2.8 0.037" scale="1 1 1" rotation="0 0 0" openclosedrawer="open: 1.8 2.8 0.037; close: 0 2.8 0.037">
