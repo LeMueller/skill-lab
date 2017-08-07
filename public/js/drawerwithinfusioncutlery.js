@@ -6,28 +6,40 @@ AFRAME.registerComponent('drawerwithinfusioncutlery',{
     dur : {default: 300},
     moveWithInfusion :{default: true},
   },
-
-  init: function (){
-    var data= this.data;
+  
+  init: function(){
+    var data=this.data;
     var el=this.el;
     var closed=true;
     var infusion=document.querySelector("#infusioninpack");
+    var moveWithInfusion = data.moveWithInfusion;
     
-    el.addEventListener("click",function(){
-      if(data.moveWithInfusion===true){
-        if(closed === true){
-        open(el, data.close, data.open, data.dur);
-        open(infusion, '1.24 4.439 1.555', '3.04 4.439 1.555', data.dur);
-        closed=false;
-      }else if(closed===false){
-        open(el, data.open, data.close, data.dur);
-        open(infusion, '3.04 4.439 1.555', '1.24 4.439 1.555', data.dur);
-        closed=true;
-      }   
-      }
-      
+    infusion.addEventListener("click",function(){
+      moveWithInfusion=false;
     });
-  }
+
+    el.addEventListener("click",function(){
+      if(moveWithInfusion===true){
+        if(closed === true){
+          open(el, data.close, data.open, data.dur);
+          open(infusion, '1.24 4.439 1.555', '3.04 4.439 1.555', data.dur);
+          closed=false;
+        }else if(closed===false){
+          open(el, data.open, data.close, data.dur);
+          open(infusion, '3.04 4.439 1.555', '1.24 4.439 1.555', data.dur);
+          closed=true;
+        }   
+      }else if(moveWithInfusion===false){       
+        if(closed === true){
+          open(el, data.close, data.open, data.dur);
+          closed=false;
+        }else if(closed===false){
+          open(el, data.open, data.close, data.dur);
+          closed=true;
+        }   
+      }  
+    });   
+  },
 });
 
 function open(el, close, open, dur){

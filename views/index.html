@@ -8,9 +8,10 @@
     <script src="../js/clock.js"></script>
     <script src="../js/opencloseabwurfcap.js"></script>
     <script src="../js/cursorsubmit.js"></script>
+    <script src="../js/infusioncutlery.js"></script>
     <script src="../js/bottleactivity2.js"></script>
     <script src="../js/handwashing.js"></script>
-    <script src="../js/infusioncutlery.js"></script>
+    
     <script src="../js/drawerwithinfusioncutlery.js"></script>
     <script src="../js/portfolio.js"></script>
     
@@ -146,11 +147,11 @@
             <a-gltf-model src="#smalldrawerhandle"></a-gltf-model>
           </a-gltf-model>
           
-          <a-gltf-model id="drawerWithInfusion" src="#smalldrawernew" position="0 4.1 0.037" scale="1 1 1" rotation="0 0 0" drawerwithinfusioncutlery="open: 1.8 4.1 0.037; close: 0 4.1 0.037;">
+          <a-gltf-model id="drawerWithInfusion" src="#smalldrawernew" position="0 4.1 0.037" scale="1 1 1" rotation="0 0 0" drawerwithinfusioncutlery="open: 1.8 4.1 0.037; close: 0 4.1 0.037; moveWithInfusion:true">
             <a-gltf-model src="#smalldrawerhandle"></a-gltf-model>
           </a-gltf-model>
           <!-- Infusion in Packung -->
-          <a-gltf-model id="infusioninpack" src="#Infusionpakungobenteil" position="1.24 4.439 1.555" rotation="" scale="0.4 0.4 0.4">
+          <a-gltf-model id="infusioninpack" src="#Infusionpakungobenteil" position="1.24 4.439 1.555" rotation="" scale="0.4 0.4 0.4" infusioncutlery>
             <a-image src="#Infusionpakunguntenteil" position="-0.25 -0.42 0.112" rotation="90 180 180" scale="2.495 5.478 1"></a-image>
             <a-gltf-model src="#Infusioninpakungall" position="" rotation="" scale=""></a-gltf-model>
           </a-gltf-model>
@@ -292,12 +293,14 @@
           <a-gltf-model src="#handschuhe" scale="0.04 0.04 0.04" position="0.15 0 0.23" rotation="0 150 0"></a-gltf-model>
         </a-gltf-model>
       </a-entity>
-       <!-- portfolio -->
+     
+      <!-- portfolio -->
       <a-gltf-model src="#mappebackground" scale="0.1 0.1 0.1" position="0 1.109 -0.09" rotation="0 -90 -70" portfolio>
         <a-gltf-model id="foregroundOfPortfolio" src="#mappeforeground"></a-gltf-model>
         <a-image src="#mappedocumentimg" position="0.512 0.011 -0.02" rotation="-90 -90 180" scale="1.658 1.000 1"></a-image>
         <a-image src="#mappecolorstreakimg" position="1.096 0.005 -0.32" rotation="-90 -90 180" scale="0.938 0.148 1"></a-image>        
       </a-gltf-model>
+      
 
       <a-image src="#poster" scale="0.6 0.6 0.6" position="-1.88 0.857 -0.98"></a-image>
       
@@ -318,7 +321,7 @@
       
       <a-gltf-model  src="#standert" position="1.332 0 -0.65" rotation="0 0 0" scale="0.5 0.5 0.5"></a-gltf-model>
       
-      <a-gltf-model id="tuchobj" src="#tuch" position="0.045 0.679 -0.81" rotation="" scale="0.1 0.1 0.1"></a-gltf-model>
+      <a-gltf-model id="tuchobj" src="#tuch" position="0.454 0.679 -0.81" rotation="" scale="0.1 0.1 0.1"></a-gltf-model>
       
       <a-gltf-model src="#etikettenstapelbox" position="0.412 0.679 -0.94" rotation="0 -90 0" scale="0.06 0.06 0.06">
         <a-gltf-model src="#etikettenstapelpaper" position="" rotation="" scale="">

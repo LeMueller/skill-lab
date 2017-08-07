@@ -45,6 +45,7 @@ function movetocamera(el){
 
   el.appendChild(move);
 
+  alert("movetocamera");
 };
 
 function rotatetobacksite(el){
