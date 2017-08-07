@@ -24,7 +24,7 @@ AFRAME.registerComponent('portfolio', {
       close(foregroundOfPortfolio, data.openPosition, data.closePosition, data.openRotation, data.closeRotation, data.dur);
       setOnTable(el, data.infrontofeyesPosition, data.ontablePosition, data.infrontofeyesRotation, data.ontableRotation, data.dur);
       //this.removeEventListener('click',arguments.callee,false);
-        status++;
+      status++;
       }
     });
   }
@@ -56,6 +56,7 @@ function close(el, openP, closeP, openR, closeR, dur){
 }
 
 function setOnTable(el, eyesP, tableP, eyesR, tableR, dur){
+  //alert("setontable");
   var move = document.createElement("a-animation");
     move.setAttribute("begin","0");
     move.setAttribute("attribute", "position");
@@ -73,6 +74,8 @@ function setOnTable(el, eyesP, tableP, eyesR, tableR, dur){
     move2.setAttribute("dur", dur);
     
     el.appendChild(move2);
+  
+    //alert("move2");
   
     var t = setTimeout(function(){
     el.removeChild(move);

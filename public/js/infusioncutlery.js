@@ -7,7 +7,9 @@ AFRAME.registerComponent('infusioncutlery', {
     var el=this.el;
     var data=this.data;
     
-    
+    el.addEventListener("click",function(){
+      getIndependentInfusioncutlery(el);
+    });
     
   }
 });
@@ -15,7 +17,8 @@ AFRAME.registerComponent('infusioncutlery', {
 
 
 function getIndependentInfusioncutlery(el){
-   
+  var drawer=document.querySelector("#drawerWithInfusion");
+  alert(drawer);
 }
 
 function setOnTable(el){
