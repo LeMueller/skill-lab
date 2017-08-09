@@ -4,6 +4,7 @@ AFRAME.registerComponent('infusioncutlery',{
     message:{type:"string", default:"move to camera"},
     position:{default:'1 1 1'},
     rotation:{default:'0 90 0'},
+    movetocamerap : {default:''},
   },
 
   
@@ -13,6 +14,11 @@ AFRAME.registerComponent('infusioncutlery',{
     var el=this.el;
 
     var status=0;
+    var capstatus=0;
+    
+    var infusioncutleryopened=document.querySelector("#infusioncutleryopen");
+    var infusioncutlerycap=document.querySelector("#infusioncutlerycap");
+    var switchwheel = document.querySelector("#switchwheel");
     
     
     el.addEventListener('click', function(){
@@ -22,18 +28,28 @@ AFRAME.registerComponent('infusioncutlery',{
       }else if(status === 1){
         infusioncutleryrotatetobacksite(el);
       }else if(status === 2){
-        infusioncutlerymovetodesk(el)
+        infusioncutlerymovetodesk(el);
       }else if(status === 3){
-        
-      }else if(status === 4){
-        
-      }else if(status === 5){
-        
+        infusioncutleryopen(el, infusioncutleryopened, infusioncutlerycap);
       }
-      if(status<=6){
+      if(status<=3){
          status++;
       }
     });
+    
+    /**
+    //alert(infusioncutlerycap);
+    infusioncutlerycap.addEventListener('click',function(){
+      alert("capclick");
+      if(capstatus===0){
+        infusioncutlerycapoff(infusioncutlerycap);
+      }else if(capstatus===1){
+        
+      }
+      if(capstatus<=1){
+        capstatus++;
+      }
+    });**/
   },
 });
 
@@ -41,7 +57,7 @@ function infusioncutlerymovetocamera(el){
   var move = document.createElement("a-animation");
   move.setAttribute("begin","0");
   move.setAttribute("attribute", "position");
-  move.setAttribute("to", '8.896 10.5 -0.19');
+  move.setAttribute("to", '4.896 10.5 -0.19');
   move.setAttribute("dur", 300);
 
   el.appendChild(move);
@@ -66,13 +82,13 @@ function infusioncutleryrotatetobacksite(el){
 
 function infusioncutlerymovetodesk(el){
   
-   var oldMove = el.getElementsByTagName("a-animation");
+  var oldMove = el.getElementsByTagName("a-animation");
   el.removeChild(oldMove[0]);
   
   var move = document.createElement("a-animation");
   move.setAttribute("begin","0");
   move.setAttribute("attribute", "position");
-  move.setAttribute("to", '2.222 6.967 -0.18');
+  move.setAttribute("to", '2.222 6.967 1.384');
   move.setAttribute("dur", 300);
   
   var move2 = document.createElement("a-animation");
@@ -85,3 +101,28 @@ function infusioncutlerymovetodesk(el){
   el.appendChild(move2);
 
 };
+
+function infusioncutleryopen(el, infusioncutleryopened, infusioncutlerycap){
+  var oldMove = el.getElementsByTagName("a-animation");
+  el.removeChild(oldMove[0]);
+  el.removeChild(oldMove[0]);
+  
+  el.setAttribute("visible", "false");
+  
+  infusioncutleryopened.setAttribute("visible", "true");
+  infusioncutlerycap.setAttribute("visible", "true");
+  switchwheel.setAttribute("visible", "true");
+  
+}
+/**
+function infusioncutlerycapoff(infusioncutlerycap){
+  alert("infusioncutlerycapoff");
+  var move = document.createElement("a-animation");
+  move.setAttribute("begin","0");
+  move.setAttribute("attribute", "position");
+  move.setAttribute("to", '0.022 0.676 -0.8');
+  move.setAttribute("dur", 300);
+  
+  infusioncutlerycap.appendChild(move);
+}
+**/

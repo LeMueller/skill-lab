@@ -6,7 +6,7 @@ AFRAME.registerComponent('portfolio', {
     closeRotation : {default: '0 0 -122.728'},
     ontablePosition : {default: '-0.57 0.684 -0.94'},
     ontableRotation : {default: '0 -90 -1.43'},
-    infrontofeyesPosition : {default: '0 1.109 -0.09'},
+    infrontofeyesPosition : {default: '0 1.109 -0.45'},
     infrontofeyesRotation : {default: '0 -90 -70'},
     dur : {default: 500},
   },
