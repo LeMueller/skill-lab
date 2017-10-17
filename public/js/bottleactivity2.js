@@ -33,7 +33,7 @@ AFRAME.registerComponent('bottleactivity2',{
         takeoffcap(el);
         el.setAttribute('withcap','false');
       }else if(status === 5 && infusioncutleryinbottle.getAttribute('inbottle')=='true'){
-        alert("status ===5 click");
+        //alert("status ===5 click");
         hang(el,infusioncutleryinbottle,infusioncutleryhang);
       }
       if(status<=6){
