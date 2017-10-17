@@ -30,7 +30,7 @@ AFRAME.registerComponent('infusioncutlery',{
       }else if(status === 2){
         infusioncutlerymovetodesk(el);
       }else if(status === 3){
-        infusioncutleryopen(el, infusioncutleryopened, infusioncutlerycap);
+        infusioncutleryopen(el, infusioncutleryopened, infusioncutlerycap, switchwheel);
       }
       if(status<=3){
          status++;
@@ -102,7 +102,7 @@ function infusioncutlerymovetodesk(el){
 
 };
 
-function infusioncutleryopen(el, infusioncutleryopened, infusioncutlerycap){
+function infusioncutleryopen(el, infusioncutleryopened, infusioncutlerycap, switchwheel){
   var oldMove = el.getElementsByTagName("a-animation");
   el.removeChild(oldMove[0]);
   el.removeChild(oldMove[0]);

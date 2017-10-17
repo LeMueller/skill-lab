@@ -13,6 +13,9 @@
     <script src="../js/bottleactivity2.js"></script>
     <script src="../js/handwashing.js"></script>
     
+    <script src="../js/infusioncutleryhang.js"></script>
+    <script src="../js/infusioncutleryfix.js"></script>
+    
     <script src="../js/drawerwithinfusioncutlery.js"></script>
     <script src="../js/portfolio.js"></script>
     
@@ -340,27 +343,27 @@
       
       
       <!-- infusion in bottle -->
-      <a-gltf-model id="infusioncutleryinbottle" src="#Infusioninbottle" position="-0.15 0.69 -0.83" rotation="0 0 0" scale="0.04 0.047 0.04" visible="false"></a-gltf-model>
+      <a-gltf-model id="infusioncutleryinbottle" src="#Infusioninbottle" position="-0.15 0.69 -0.83" rotation="0 0 0" scale="0.04 0.047 0.04" visible="false" ></a-gltf-model>
       
       <!-- infusion hang -->
-      <a-gltf-model id="infusioncutleryhang" src="#Infusionhanging" position="0.839 1.112 -0.52" rotation="0 -180 -90" scale="0.04 0.04  0.04">
+      <a-gltf-model id="infusioncutleryhang" src="#Infusionhanging" position="0.839 1.112 -0.52" rotation="0 -180 -90" scale="0.04 0.04  0.04" visible="false" infusioncutleryhang>
         <a-gltf-model src="#Infusionfilling" position="" rotation="" scale=""></a-gltf-model>
-        <a-gltf-model src="#Infusionhangingrad" position="" rotation="" scale=""></a-gltf-model>
+        <a-gltf-model id="InfusionHangedWheel" src="#Infusionhangingrad" position="" rotation="" scale=""></a-gltf-model>
       </a-gltf-model>
       
-      <!-- infusion in bottle filled
-      <a-gltf-model src="#Infusionfillingwaterblue" position="0 0.827 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
+      <!-- infusion hang filled -->
+      <a-gltf-model id="InfusionHangedFilledCutlery" src="#Infusionfillingwaterblue" position="0.839 1.112 -0.52" rotation="0 -180 -90" scale="0.04 0.04  0.04" visible="false" infusioncutleryfix>
         <a-gltf-model src="#Infusionfilling" position="" rotation="" scale=""></a-gltf-model>
-        <a-gltf-model src="#Infusionhangingrad" position="" rotation="" scale=""></a-gltf-model>
+        <a-gltf-model src="#Infusionhangingrad" position="-0.45 0.053 -0.03" rotation="" scale=""></a-gltf-model>
       </a-gltf-model>
-      -->
       
-      <!-- infusion hanged
-      <a-gltf-model src="#Infusionbefestigt" position="0 0.827 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
+      
+      <!-- infusion fixed -->
+      <a-gltf-model id="InfusioncutleryFixed" src="#Infusionbefestigt" position="0.839 1.112 -0.52" rotation="0 -180 -90" scale="0.04 0.04  0.04" visible="false">
         <a-gltf-model src="#Infusionbefestigtfilling" position="" rotation="" scale=""></a-gltf-model>
-        <a-gltf-model src="#Infusionbefestigtrad" position="" rotation="" scale=""></a-gltf-model>
+        <a-gltf-model src="#Infusionbefestigtrad" position="-0.45 0.053 -0.03" rotation="" scale=""></a-gltf-model>
       </a-gltf-model>
-      -->
+      
       
       
       <!--camera -->
