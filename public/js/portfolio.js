@@ -18,6 +18,12 @@ AFRAME.registerComponent('portfolio', {
     
     var foregroundOfPortfolio = el.querySelector("#foregroundOfPortfolio");
     
+    var hookname = el.querySelector("#hookname");
+    var hookdrug = el.querySelector("#hookdrug");
+    var hookdose = el.querySelector("#hookdose");
+    var hookiv = el.querySelector("#hookiv");
+    var hookcf = el.querySelector("#hookcf");
+    
     el.addEventListener('click', function(){
       //alert(foregroundOfPortfolio);
       if(status===10){

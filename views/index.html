@@ -22,6 +22,8 @@
     <script src="../js/takedesinfectioncloth.js"></script>
     <script src="../js/desinfectioncloth.js"></script>
     
+    <script src="../js/portfoliocheck.js"></script>
+    
     
   </head>
   <body>
@@ -92,6 +94,7 @@
         <a-asset-item id="handedesinfektionhandle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandedesinhandle.gltf?1500639621314"></a-asset-item>
         <img id="handedesinfektionlabel" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fdesinfektionsmittel.jpg?1500640564332">
         
+        <!-- tuchdose -->
         <a-asset-item id="tuchdose" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftuchdose.gltf?1500642654284"></a-asset-item>
         <a-asset-item id="tuchdosedecker" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftuchdosedecker.gltf?1500642923590"></a-asset-item>
         <a-asset-item id="tuchindose" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftuchindose.gltf?1500643789618"></a-asset-item>
@@ -101,6 +104,7 @@
         
         <a-asset-item id="tuch" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftuchimport.gltf?1500653978507"></a-asset-item>
         
+        <!-- etiketten -->
         <a-asset-item id="etikettenstapelbox" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fetikettenstapelobj.gltf?1500806067322"></a-asset-item>
         <a-asset-item id="etikettenstapelpaper" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fetikettenstapelpapierobj.gltf?1500807019543"></a-asset-item>
         <img id="namelabelempty" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fnamelabelempty512.jpg?1500807744172">
@@ -124,6 +128,10 @@
         <a-asset-item id="Infusionbefestigt" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F9_Infusionbefestigt.gltf?1500893362863"></a-asset-item>
         <a-asset-item id="Infusionbefestigtfilling" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F9_Infusionbefestigtfilling.gltf?1500893564306"></a-asset-item>
         <a-asset-item id="Infusionbefestigtrad" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F9_Infusionbefestigtrad.gltf?1500893721997"></a-asset-item>
+        
+        
+        <img id="transparent" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftransparent512.png?1508493133221">
+        <img id="hook" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhook512.png?1508490365427">
         
       </a-assets>
       
@@ -302,10 +310,26 @@
       </a-entity>
      
       <!-- portfolio -->
-      <a-gltf-model src="#mappebackground" scale="0.1 0.1 0.1" position="0 1.109 -0.45" rotation="0 -90 -70" portfolio>
+      <a-gltf-model src="#mappebackground" scale="0.1 0.1 0.1" position="0 1.109 -0.45" rotation="0 -90 -70">
         <a-gltf-model id="foregroundOfPortfolio" src="#mappeforeground"></a-gltf-model>
         <a-image src="#mappedocumentimg" position="0.512 0.011 -0.02" rotation="-90 -90 180" scale="1.658 1.000 1"></a-image>
         <a-image src="#mappecolorstreakimg" position="1.096 0.005 -0.32" rotation="-90 -90 180" scale="0.938 0.148 1"></a-image>        
+        
+        
+        <a-image id="transparentname" src="#transparent" scale="0.1 0.1 0.1" position="0.147 0.027 0.671" rotation="-90 90 0" visible="true" portfoliocheck></a-image>
+        <a-image id="hookname" src="#hook" scale="0.1 0.1 0.1" position="0.147 0.027 0.671" rotation="-90 90 0" checked="false" visible="false"></a-image>
+        
+        <a-image id="transparentdrug" src="#transparent" scale="0.1 0.1 0.1" position="0.899 0.043 0.700" rotation="-90 90 0" visible="true" portfoliocheck></a-image>
+        <a-image id="hookdrug" src="#hook" scale="0.1 0.1 0.1" position="0.899 0.043 0.700" rotation="-90 90 0" checked="false" visible="false"></a-image>
+        
+        <a-image id="transparentdose" src="#transparent" scale="0.1 0.1 0.1" position="0.894 0.057 0.541" rotation="-90 90 0" visible="true" portfoliocheck></a-image>
+        <a-image id="hookdose" src="#hook" scale="0.1 0.1 0.1" position="0.894 0.057 0.541" rotation="-90 90 0" checked="false" visible="false"></a-image>
+        
+        <a-image id="transparentiv" src="#transparent" scale="0.1 0.1 0.1" position="0.899 0.060 0.426" rotation="-90 90 0" visible="true" portfoliocheck></a-image>
+        <a-image id="hookiv" src="#hook" scale="0.1 0.1 0.1" position="0.899 0.060 0.426" rotation="-90 90 0" checked="false" visible="false"></a-image>
+        
+        <a-image id="transparentcf" src="#transparent" scale="0.1 0.1 0.1" position="0.908 0.040 -0.28" rotation="-90 90 0" visible="true" portfoliocheck></a-image>
+        <a-image id="hookcf" src="#hook" scale="0.1 0.1 0.1" position="0.908 0.040 -0.28" rotation="-90 90 0" checked="false" visible="false"></a-image>
       </a-gltf-model>
       
 
