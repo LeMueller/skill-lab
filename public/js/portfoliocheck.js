@@ -13,7 +13,10 @@ AFRAME.registerComponent('portfoliocheck', {
     var hookiv = document.querySelector("#hookiv");
     var hookcf = document.querySelector("#hookcf");
     
-    el.addEventListener('click', function(){
+    el.addEventListener('click', function(e){
+      
+      e.preventDefault();
+      e.stopPropagation();
       
       checkportfolio(el, hookname, hookdrug, hookdose, hookiv, hookcf);
       
@@ -26,27 +29,27 @@ function checkportfolio(el, hookname, hookdrug, hookdose, hookiv, hookcf){
   switch(el.id){
       
     case "transparentname":
-      hookname.setAttribute("check","true");
+      hookname.setAttribute("checked","true");
       hookname.setAttribute("visible","true");
       el.setAttribute("visible","false");
       break;
     case "transparentdrug":
-      hookdrug.setAttribute("check","true");
+      hookdrug.setAttribute("checked","true");
       hookdrug.setAttribute("visible","true");
       el.setAttribute("visible","false");
       break;
     case "transparentdose":
-      hookdose.setAttribute("check","true");
+      hookdose.setAttribute("checked","true");
       hookdose.setAttribute("visible","true");
       el.setAttribute("visible","false");
       break;
     case "transparentiv":
-      hookiv.setAttribute("check","true");
+      hookiv.setAttribute("checked","true");
       hookiv.setAttribute("visible","true");
       el.setAttribute("visible","false");
       break;
     case "transparentcf":
-      hookcf.setAttribute("check","true");
+      hookcf.setAttribute("checked","true");
       hookcf.setAttribute("visible","true");
       el.setAttribute("visible","false");
       break;
