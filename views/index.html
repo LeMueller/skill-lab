@@ -23,6 +23,8 @@
     <script src="../js/desinfectioncloth.js"></script>
     
     <script src="../js/portfoliocheck.js"></script>
+    <script src="../js/namelabelempty.js"></script>
+    <script src="../js/namelabelfilled.js"></script>
     
     
   </head>
@@ -108,7 +110,7 @@
         <a-asset-item id="etikettenstapelbox" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fetikettenstapelobj.gltf?1500806067322"></a-asset-item>
         <a-asset-item id="etikettenstapelpaper" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fetikettenstapelpapierobj.gltf?1500807019543"></a-asset-item>
         <img id="namelabelempty" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fnamelabelempty512.jpg?1500807744172">
-        <img id="namelabelwrote" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fnamelabelwrote512.jpg?1500807744189">
+        <img id="namelabelwritten" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fnamelabelwrote512.jpg?1500807744189">
         
         <a-asset-item id="Infusionpakungobenteil" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F1_Infusionpakungobenteilinside.gltf?1500885931151"></a-asset-item>
         <img id="Infusionpakunguntenteil" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FInfusionsbesteckEtikett512.jpg?1500886217298">
@@ -310,7 +312,7 @@
       </a-entity>
      
       <!-- portfolio -->
-      <a-gltf-model src="#mappebackground" scale="0.1 0.1 0.1" position="0 1.109 -0.45" rotation="0 -90 -70" portfolio>
+      <a-gltf-model src="#mappebackground" scale="0.1 0.1 0.1" position="0 1.109 -0.45" rotation="0 -90 -70" portfolio visible="false">
         <a-gltf-model id="foregroundOfPortfolio" src="#mappeforeground"></a-gltf-model>
         <a-image src="#mappedocumentimg" position="0.512 0.011 -0.02" rotation="-90 -90 180" scale="1.658 1.000 1"></a-image>
         <a-image src="#mappecolorstreakimg" position="1.096 0.005 -0.32" rotation="-90 -90 180" scale="0.938 0.148 1"></a-image>        
@@ -356,10 +358,11 @@
       
       <a-gltf-model src="#etikettenstapelbox" position="0.412 0.679 -0.94" rotation="0 -90 0" scale="0.06 0.06 0.06">
         <a-gltf-model src="#etikettenstapelpaper" position="" rotation="" scale="">
-          <a-image src="#namelabelempty" position="0 0.359 0" rotation="-90 90 0" scale="1.924 1 1"></a-image>     
+               
         </a-gltf-model>
       </a-gltf-model>
-      
+      <a-image id="namelabelno" src="#namelabelempty" position="0.412 0.701 -0.94" rotation="-90 0 0" scale="0.112 0.055 0.055" namelabelempty></a-image>
+      <a-image id="namelabelyes" src="#namelabelwritten" position="-0.01 1.053 -0.48" rotation="-25 0 0" scale="0.112 0.055 0.055" visible="false" namelabelfilled></a-image>
      
       <a-gltf-model id="infusioncutleryopen" src="#Infusionopen" position="-0.17 0.671 -0.85" rotation="0 155.7 0" scale="0.04 0.04 0.04" visible="false" infusioncutleryopen>
         
