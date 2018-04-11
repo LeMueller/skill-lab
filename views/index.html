@@ -8,11 +8,23 @@
     <script src="../js/clock.js"></script>
     <script src="../js/opencloseabwurfcap.js"></script>
     <script src="../js/cursorsubmit.js"></script>
+    <script src="../js/infusioncutlery.js"></script>
+    <script src="../js/infusioncutleryopen.js"></script>
     <script src="../js/bottleactivity2.js"></script>
     <script src="../js/handwashing.js"></script>
-    <script src="../js/infusioncutlery.js"></script>
+    
+    <script src="../js/infusioncutleryhang.js"></script>
+    <script src="../js/infusioncutleryfix.js"></script>
+    
     <script src="../js/drawerwithinfusioncutlery.js"></script>
     <script src="../js/portfolio.js"></script>
+    
+    <script src="../js/takedesinfectioncloth.js"></script>
+    <script src="../js/desinfectioncloth.js"></script>
+    
+    <script src="../js/portfoliocheck.js"></script>
+    <script src="../js/namelabelempty.js"></script>
+    <script src="../js/namelabelfilled.js"></script>
     
     
   </head>
@@ -84,6 +96,7 @@
         <a-asset-item id="handedesinfektionhandle" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhandedesinhandle.gltf?1500639621314"></a-asset-item>
         <img id="handedesinfektionlabel" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fdesinfektionsmittel.jpg?1500640564332">
         
+        <!-- tuchdose -->
         <a-asset-item id="tuchdose" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftuchdose.gltf?1500642654284"></a-asset-item>
         <a-asset-item id="tuchdosedecker" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftuchdosedecker.gltf?1500642923590"></a-asset-item>
         <a-asset-item id="tuchindose" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftuchindose.gltf?1500643789618"></a-asset-item>
@@ -93,10 +106,11 @@
         
         <a-asset-item id="tuch" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftuchimport.gltf?1500653978507"></a-asset-item>
         
+        <!-- etiketten -->
         <a-asset-item id="etikettenstapelbox" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fetikettenstapelobj.gltf?1500806067322"></a-asset-item>
         <a-asset-item id="etikettenstapelpaper" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fetikettenstapelpapierobj.gltf?1500807019543"></a-asset-item>
         <img id="namelabelempty" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fnamelabelempty512.jpg?1500807744172">
-        <img id="namelabelwrote" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fnamelabelwrote512.jpg?1500807744189">
+        <img id="namelabelwritten" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fnamelabelwrote512.jpg?1500807744189">
         
         <a-asset-item id="Infusionpakungobenteil" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F1_Infusionpakungobenteilinside.gltf?1500885931151"></a-asset-item>
         <img id="Infusionpakunguntenteil" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2FInfusionsbesteckEtikett512.jpg?1500886217298">
@@ -117,6 +131,10 @@
         <a-asset-item id="Infusionbefestigtfilling" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F9_Infusionbefestigtfilling.gltf?1500893564306"></a-asset-item>
         <a-asset-item id="Infusionbefestigtrad" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2F9_Infusionbefestigtrad.gltf?1500893721997"></a-asset-item>
         
+        
+        <img id="transparent" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Ftransparent512.png?1508493133221">
+        <img id="hook" src="https://cdn.glitch.com/0578ce6a-1f65-48ff-8959-8ee94488f9bd%2Fhook512.png?1508490365427">
+        
       </a-assets>
       
       
@@ -124,6 +142,10 @@
       <a-plane  rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>     
       <a-light type="ambient" color="#445451"></a-light>    
       <a-light type="point" intensity="0.8" position="0 2 0"></a-light>
+      
+      <!--status of all -->
+      <div id="statusIndex" portfoliochecked="false" tabledesinfection="false" handdesinfection="false" infusionbottlehanged="false" 
+           namelabelpasted="false"/>
 
       <!--cabinet -->
       <a-entity id="twoCabinet" position="0 0 -1" >
@@ -146,11 +168,11 @@
             <a-gltf-model src="#smalldrawerhandle"></a-gltf-model>
           </a-gltf-model>
           
-          <a-gltf-model id="drawerWithInfusion" src="#smalldrawernew" position="0 4.1 0.037" scale="1 1 1" rotation="0 0 0" drawerwithinfusioncutlery="open: 1.8 4.1 0.037; close: 0 4.1 0.037;">
+          <a-gltf-model id="drawerWithInfusion" src="#smalldrawernew" position="0 4.1 0.037" scale="1 1 1" rotation="0 0 0" drawerwithinfusioncutlery="open: 1.8 4.1 0.037; close: 0 4.1 0.037; moveWithInfusion:true">
             <a-gltf-model src="#smalldrawerhandle"></a-gltf-model>
           </a-gltf-model>
           <!-- Infusion in Packung -->
-          <a-gltf-model id="infusioninpack" src="#Infusionpakungobenteil" position="1.24 4.439 1.555" rotation="" scale="0.4 0.4 0.4">
+          <a-gltf-model id="infusioninpack" src="#Infusionpakungobenteil" position="1.24 4.439 1.555" rotation="" scale="0.4 0.4 0.4" infusioncutlery>
             <a-image src="#Infusionpakunguntenteil" position="-0.25 -0.42 0.112" rotation="90 180 180" scale="2.495 5.478 1"></a-image>
             <a-gltf-model src="#Infusioninpakungall" position="" rotation="" scale=""></a-gltf-model>
           </a-gltf-model>
@@ -252,7 +274,7 @@
                     bottleactivity__movetocamera="event:movetocamera" bottleactivity__rotatetobacksite="event:rotatetobacksite" bottleactivity__rotatetotopsite="event:rotatetotopsite"
                     bottleactivity__movetodesk="event:movetodesk" bottleactivity__takeoffcap="event:takeoffcap" bottleactivity__hang="event:hang">
       -->
-      <a-gltf-model id="nacl500" src="#bottle" scale="0.1 0.1 0.1" position="-0.27 1.410 -0.83" rotation="0 270 0" 
+      <a-gltf-model id="nacl500" src="#bottle" scale="0.1 0.1 0.1" position="-0.27 1.410 -0.83" rotation="0 270 0" withcap="true"
                     bottleactivity2 >
         <a-gltf-model id="water" src="#bottlewaterbottom"></a-gltf-model>
         <a-gltf-model id="bottlecap" src="#bottledecker" position="0 0.904 0"></a-gltf-model>
@@ -265,7 +287,7 @@
         <a-gltf-model src="#naci1000"></a-gltf-model>
       </a-gltf-model>
       
-      <a-gltf-model src="#bottle" scale="0.1 0.1 0.1" position="-0.19 1.612 -0.83" rotation="0 270 0">
+      <a-gltf-model src="#bottle" scale="0.1 0.1 0.1" position="-0.39 1.409 -0.83" rotation="0 270 0">
         <a-gltf-model src="#bottlewaterbottom"></a-gltf-model>
         <a-gltf-model src="#bottledecker" position="0 0.904 0"></a-gltf-model>
         <a-gltf-model src="#g5500"></a-gltf-model>
@@ -292,12 +314,30 @@
           <a-gltf-model src="#handschuhe" scale="0.04 0.04 0.04" position="0.15 0 0.23" rotation="0 150 0"></a-gltf-model>
         </a-gltf-model>
       </a-entity>
-       <!-- portfolio -->
-      <a-gltf-model src="#mappebackground" scale="0.1 0.1 0.1" position="0 1.109 -0.09" rotation="0 -90 -70" portfolio>
+     
+      <!-- portfolio -->
+      <a-gltf-model src="#mappebackground" scale="0.1 0.1 0.1" position="0 1.109 -0.45" rotation="0 -90 -70" portfolio visible="false">
         <a-gltf-model id="foregroundOfPortfolio" src="#mappeforeground"></a-gltf-model>
         <a-image src="#mappedocumentimg" position="0.512 0.011 -0.02" rotation="-90 -90 180" scale="1.658 1.000 1"></a-image>
         <a-image src="#mappecolorstreakimg" position="1.096 0.005 -0.32" rotation="-90 -90 180" scale="0.938 0.148 1"></a-image>        
+        
+        
+        <a-image id="transparentname" src="#transparent" scale="0.1 0.1 0.1" position="0.147 0.027 0.671" rotation="-90 90 0" visible="true" portfoliocheck></a-image>
+        <a-image id="hookname" src="#hook" scale="0.1 0.1 0.1" position="0.147 0.027 0.671" rotation="-90 90 0" checked="false" visible="false"></a-image>
+        
+        <a-image id="transparentdrug" src="#transparent" scale="0.1 0.1 0.1" position="0.899 0.043 0.700" rotation="-90 90 0" visible="true" portfoliocheck></a-image>
+        <a-image id="hookdrug" src="#hook" scale="0.1 0.1 0.1" position="0.899 0.043 0.700" rotation="-90 90 0" checked="false" visible="false"></a-image>
+        
+        <a-image id="transparentdose" src="#transparent" scale="0.1 0.1 0.1" position="0.894 0.057 0.541" rotation="-90 90 0" visible="true" portfoliocheck></a-image>
+        <a-image id="hookdose" src="#hook" scale="0.1 0.1 0.1" position="0.894 0.057 0.541" rotation="-90 90 0" checked="false" visible="false"></a-image>
+        
+        <a-image id="transparentiv" src="#transparent" scale="0.1 0.1 0.1" position="0.899 0.060 0.426" rotation="-90 90 0" visible="true" portfoliocheck></a-image>
+        <a-image id="hookiv" src="#hook" scale="0.1 0.1 0.1" position="0.899 0.060 0.426" rotation="-90 90 0" checked="false" visible="false"></a-image>
+        
+        <a-image id="transparentcf" src="#transparent" scale="0.1 0.1 0.1" position="0.908 0.040 -0.28" rotation="-90 90 0" visible="true" portfoliocheck></a-image>
+        <a-image id="hookcf" src="#hook" scale="0.1 0.1 0.1" position="0.908 0.040 -0.28" rotation="-90 90 0" checked="false" visible="false"></a-image>
       </a-gltf-model>
+      
 
       <a-image src="#poster" scale="0.6 0.6 0.6" position="-1.88 0.857 -0.98"></a-image>
       
@@ -312,53 +352,56 @@
       
       <a-gltf-model src="#tuchdose" position="0.22 0.678 -0.9" rotation="0 128 0" scale="0.15 0.15 0.15">
         <a-gltf-model src="#tuchdosedecker" position="0.017 0.59 0" rotation="-2.75 27.67 2.75" scale="0.3 0.3 0.3"></a-gltf-model>
-        <a-gltf-model src="#tuchindose" position="0 0.096 -0.05" rotation="0 -174 0" scale="0.8 0.8 0.8"></a-gltf-model>
+        <a-gltf-model id="desinfectoincloth" src="#tuchindose" position="0 0.096 -0.05" rotation="0 -174 0" scale="0.8 0.8 0.8" takedesinfectioncloth></a-gltf-model>
         <a-gltf-model src="#tuchdoselabel" position="-0.03 0 -0.08" rotation="0 180 0" scale=""></a-gltf-model>
       </a-gltf-model>
       
-      <a-gltf-model  src="#standert" position="1.332 0 -0.65" rotation="0 0 0" scale="0.5 0.5 0.5"></a-gltf-model>
+      <a-gltf-model  src="#standert" position="0.975 0 -0.65" rotation="0 41.59 0" scale="0.5 0.5 0.5"></a-gltf-model>
       
-      <a-gltf-model id="tuchobj" src="#tuch" position="0.045 0.679 -0.81" rotation="" scale="0.1 0.1 0.1"></a-gltf-model>
+      <a-gltf-model id="tuchobj" src="#tuch" position="0 0.679 -0.81" rotation="" scale="0.1 0.1 0.1" desinfectioncloth></a-gltf-model>
       
       <a-gltf-model src="#etikettenstapelbox" position="0.412 0.679 -0.94" rotation="0 -90 0" scale="0.06 0.06 0.06">
         <a-gltf-model src="#etikettenstapelpaper" position="" rotation="" scale="">
-          <a-image src="#namelabelempty" position="0 0.359 0" rotation="-90 90 0" scale="1.924 1 1"></a-image>     
+               
         </a-gltf-model>
       </a-gltf-model>
-      
-      <!-- infusionopen with cap and rad
-      <a-gltf-model src="#Infusionopen" position="0 0.827 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
-        <a-gltf-model src="#Infusionopencap" position="" rotation="" scale=""></a-gltf-model>
-        <a-gltf-model src="#Infusionopenrad" position="" rotation="" scale=""></a-gltf-model>
+      <a-image id="namelabelno" src="#namelabelempty" position="0.412 0.701 -0.94" rotation="-90 0 0" scale="0.112 0.055 0.055" namelabelempty></a-image>
+      <a-image id="namelabelyes" src="#namelabelwritten" position="-0.01 1.053 -0.48" rotation="-25 0 0" scale="0.112 0.055 0.055" visible="false" namelabelfilled></a-image>
+     
+      <a-gltf-model id="infusioncutleryopen" src="#Infusionopen" position="-0.17 0.671 -0.85" rotation="0 155.7 0" scale="0.04 0.04 0.04" visible="false" infusioncutleryopen>
+        
+        
       </a-gltf-model>
-      -->
+      <a-gltf-model id="infusioncutlerycap" src="#Infusionopencap" position="-0.17 0.671 -0.85" rotation="0 155.7 0" scale="0.04 0.04 0.04" visible="false"></a-gltf-model>
+      <a-gltf-model id="switchwheel" src="#Infusionopenrad" position="-0.17 0.671 -0.85" rotation="0 155.7 0" scale="0.04 0.04 0.04" visible="false"></a-gltf-model>
       
-      <!-- infusion in bottle
-      <a-gltf-model src="#Infusioninbottle" position="0 0.827 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1"></a-gltf-model>
-      -->
-      <!-- infusion in bottle
-      <a-gltf-model src="#Infusionhanging" position="0 0.827 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
+      
+      <!-- infusion in bottle -->
+      <a-gltf-model id="infusioncutleryinbottle" src="#Infusioninbottle" position="-0.15 0.69 -0.83" rotation="0 0 0" scale="0.04 0.047 0.04" visible="false" ></a-gltf-model>
+      
+      <!-- infusion hang -->
+      <a-gltf-model id="infusioncutleryhang" src="#Infusionhanging" position="0.839 1.112 -0.52" rotation="0 -180 -90" scale="0.04 0.04  0.04" visible="false" infusioncutleryhang>
         <a-gltf-model src="#Infusionfilling" position="" rotation="" scale=""></a-gltf-model>
-        <a-gltf-model src="#Infusionhangingrad" position="" rotation="" scale=""></a-gltf-model>
+        <a-gltf-model id="InfusionHangedWheel" src="#Infusionhangingrad" position="" rotation="" scale=""></a-gltf-model>
       </a-gltf-model>
-      -->
-      <!-- infusion in bottle filled
-      <a-gltf-model src="#Infusionfillingwaterblue" position="0 0.827 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
-        <a-gltf-model src="#Infusionfilling" position="" rotation="" scale=""></a-gltf-model>
-        <a-gltf-model src="#Infusionhangingrad" position="" rotation="" scale=""></a-gltf-model>
-      </a-gltf-model>
-      -->
       
-      <!-- infusion hanged
-      <a-gltf-model src="#Infusionbefestigt" position="0 0.827 -0.36" rotation="0 180 0" scale="0.1 0.1 0.1">
+      <!-- infusion hang filled -->
+      <a-gltf-model id="InfusionHangedFilledCutlery" src="#Infusionfillingwaterblue" position="0.839 1.112 -0.52" rotation="0 -180 -90" scale="0.04 0.04  0.04" visible="false" infusioncutleryfix>
+        <a-gltf-model src="#Infusionfilling" position="" rotation="" scale=""></a-gltf-model>
+        <a-gltf-model src="#Infusionhangingrad" position="-0.45 0.053 -0.03" rotation="" scale=""></a-gltf-model>
+      </a-gltf-model>
+      
+      
+      <!-- infusion fixed -->
+      <a-gltf-model id="InfusioncutleryFixed" src="#Infusionbefestigt" position="0.839 1.112 -0.52" rotation="0 -180 -90" scale="0.04 0.04  0.04" visible="false">
         <a-gltf-model src="#Infusionbefestigtfilling" position="" rotation="" scale=""></a-gltf-model>
-        <a-gltf-model src="#Infusionbefestigtrad" position="" rotation="" scale=""></a-gltf-model>
+        <a-gltf-model src="#Infusionbefestigtrad" position="-0.45 0.053 -0.03" rotation="" scale=""></a-gltf-model>
       </a-gltf-model>
-      -->
+      
       
       
       <!--camera -->
-      <a-camera position="0 -0.5 0">
+      <a-camera position="0 -0.5 -0.35">
         <a-entity cursor="fuse: false; fuseTimeout: 1000; near: 0.001"
             position="0.000 0.000 -0.08"
             geometry="primitive: ring; radiusInner: 0.0008; radiusOuter: 0.0013"

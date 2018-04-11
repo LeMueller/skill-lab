@@ -4,6 +4,7 @@ AFRAME.registerComponent('bottleactivity2',{
     message:{type:"string", default:"move to camera"},
     position:{default:'1 1 1'},
     rotation:{default:'0 90 0'},
+    withcap:{defalut: 'true'},
   },
 
   
@@ -13,6 +14,9 @@ AFRAME.registerComponent('bottleactivity2',{
     var el=this.el;
 
     var status=0;
+    
+    var infusioncutleryinbottle=document.querySelector("#infusioncutleryinbottle");
+    var infusioncutleryhang=document.querySelector("#infusioncutleryhang");
     
     
     el.addEventListener('click', function(){
@@ -25,9 +29,12 @@ AFRAME.registerComponent('bottleactivity2',{
       }else if(status === 3){
         movetodesk(el);
       }else if(status === 4){
+      
         takeoffcap(el);
-      }else if(status === 5){
-        hang(el);
+        el.setAttribute('withcap','false');
+      }else if(status === 5 && infusioncutleryinbottle.getAttribute('inbottle')=='true'){
+        //alert("status ===5 click");
+        hang(el,infusioncutleryinbottle,infusioncutleryhang);
       }
       if(status<=6){
          status++;
@@ -40,11 +47,12 @@ function movetocamera(el){
   var move = document.createElement("a-animation");
   move.setAttribute("begin","0");
   move.setAttribute("attribute", "position");
-  move.setAttribute("to", '0 1.054 -0.19');
+  move.setAttribute("to", '0 1.054 -0.49');
   move.setAttribute("dur", 300);
 
   el.appendChild(move);
 
+  //alert("movetocamera");
 };
 
 function rotatetobacksite(el){
@@ -90,13 +98,13 @@ function movetodesk(el){
   var move = document.createElement("a-animation");
   move.setAttribute("begin","0");
   move.setAttribute("attribute", "rotation");
-  move.setAttribute("to", '0 270 0');
+  move.setAttribute("to", '0 -44.6 0');
   move.setAttribute("dur", 300);
 
   var move2 = document.createElement("a-animation");
   move2.setAttribute("begin","0");
   move2.setAttribute("attribute", "position");
-  move2.setAttribute("to", '-0.27 0.735 -0.83');
+  move2.setAttribute("to", '-0.32 0.732 -0.83');
   move2.setAttribute("dur", 300);
 
   el.appendChild(move);
@@ -118,14 +126,14 @@ function takeoffcap(el){
   var abwurfdecker = scene.querySelector("#abwurfmodelcapnewpivot");
   //alert(scene);
   scene.appendChild(cap);
-  cap.setAttribute("position", "-0.27 0.826 -0.83");
-  cap.setAttribute("rotation", "0 90 0 ");
+  cap.setAttribute("position", "-0.32 0.823 -0.83");
+  cap.setAttribute("rotation", "0 -44.6 0 ");
   cap.setAttribute("scale", "0.1 0.1 0.1");
   
   var move = document.createElement("a-animation");
   move.setAttribute("begin","0");
   move.setAttribute("attribute", "position");
-  move.setAttribute("to", '-0.27 0.9 -0.83');
+  move.setAttribute("to", '-0.32 0.9 -0.83');
   move.setAttribute("dur", 300);
   cap.appendChild(move);
   
@@ -173,19 +181,19 @@ function takeoffcap(el){
   },900);
 }
 
-function hang(el){    
+function hang(el, infusioncutleryinbottle,infusioncutleryhang){    
   //alert("hang");
 
   var move = document.createElement("a-animation");
   move.setAttribute("begin","0");
   move.setAttribute("attribute", "rotation");
-  move.setAttribute("to", '180 270 0');
+  move.setAttribute("to", '0 66.46 180');
   move.setAttribute("dur", 500);
 
   var move2 = document.createElement("a-animation");
   move2.setAttribute("begin","0");
   move2.setAttribute("attribute", "position");
-  move2.setAttribute("to", '1.156 1.513 -0.63');
+  move2.setAttribute("to", '0.841 1.513 -0.52');
   move2.setAttribute("dur", 500);
 
   el.appendChild(move);
@@ -196,4 +204,7 @@ function hang(el){
     el.removeChild(move);
     el.removeChild(move2);
   },900);
+  
+  infusioncutleryinbottle.setAttribute("visible","false");
+  infusioncutleryhang.setAttribute("visible","true");
 }

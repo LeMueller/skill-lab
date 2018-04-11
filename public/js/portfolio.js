@@ -6,7 +6,7 @@ AFRAME.registerComponent('portfolio', {
     closeRotation : {default: '0 0 -122.728'},
     ontablePosition : {default: '-0.57 0.684 -0.94'},
     ontableRotation : {default: '0 -90 -1.43'},
-    infrontofeyesPosition : {default: '0 1.109 -0.09'},
+    infrontofeyesPosition : {default: '0 1.109 -0.45'},
     infrontofeyesRotation : {default: '0 -90 -70'},
     dur : {default: 500},
   },
@@ -14,17 +14,31 @@ AFRAME.registerComponent('portfolio', {
   init: function(){
     var data= this.data;
     var el= this.el;
-    var status=10;
     
     var foregroundOfPortfolio = el.querySelector("#foregroundOfPortfolio");
     
+    var hookname = el.querySelector("#hookname");
+    var hookdrug = el.querySelector("#hookdrug");
+    var hookdose = el.querySelector("#hookdose");
+    var hookiv = el.querySelector("#hookiv");
+    var hookcf = el.querySelector("#hookcf");
+    
+    //alert(hookname.getAttribute("checked"));
+    //alert(hookdrug.getAttribute("checked"));
+    //alert(hookdose.getAttribute("checked"));
+    //alert(hookname.getAttribute("checked"));
+    //alert(hookname.getAttribute("checked"));
+    
     el.addEventListener('click', function(){
       //alert(foregroundOfPortfolio);
-      if(status===10){
+      if(hookname.getAttribute("checked")=="true" && hookdrug.getAttribute("checked")=="true" && hookdose.getAttribute("checked")=="true" && hookiv.getAttribute("checked")=="true" && hookcf.getAttribute("checked")=="true"
+        ){
       close(foregroundOfPortfolio, data.openPosition, data.closePosition, data.openRotation, data.closeRotation, data.dur);
       setOnTable(el, data.infrontofeyesPosition, data.ontablePosition, data.infrontofeyesRotation, data.ontableRotation, data.dur);
       //this.removeEventListener('click',arguments.callee,false);
-      status++;
+      hidehooks(hookname, hookdrug, hookdose, hookiv, hookcf);
+      }else{
+        //alert("5-R ?");//forget to check 5-R?
       }
     });
   }
@@ -81,4 +95,12 @@ function setOnTable(el, eyesP, tableP, eyesR, tableR, dur){
     el.removeChild(move);
     el.removeChild(move2);
     },600); 
+}
+
+function hidehooks(hookname, hookdrug, hookdose, hookiv, hookcf){
+  hookname.setAttribute("visible","false");
+  hookdrug.setAttribute("visible","false");
+  hookdose.setAttribute("visible","false");
+  hookiv.setAttribute("visible","false");
+  hookcf.setAttribute("visible","false");
 }
